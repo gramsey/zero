@@ -1,28 +1,12 @@
--- farming/init.lua
-
--- Load support for MT game translation.
-local S = minetest.get_translator("farming")
-
--- Global farming namespace
-
-farming = {}
-farming.path = minetest.get_modpath("farming")
-farming.get_translator = S
-
--- Load files
-
-dofile(farming.path .. "/api.lua")
-dofile(farming.path .. "/nodes.lua")
-dofile(farming.path .. "/hoes.lua")
-
+local S = minetest.get_translator("farm")
 
 -- Wheat
 
-farming.register_plant("farming:wheat", {
+farm.register_plant("farm:wheat", {
 	description = S("Wheat Seed"),
 	harvest_description = S("Wheat"),
 	paramtype2 = "meshoptions",
-	inventory_image = "farming_wheat_seed.png",
+	inventory_image = "farm_wheat_seed.png",
 	steps = 8,
 	minlight = 13,
 	maxlight = minetest.LIGHT_MAX,
@@ -31,39 +15,39 @@ farming.register_plant("farming:wheat", {
 	place_param2 = 3,
 })
 
-minetest.register_craftitem("farming:flour", {
+minetest.register_craftitem("farm:flour", {
 	description = S("Flour"),
-	inventory_image = "farming_flour.png",
+	inventory_image = "farm_flour.png",
 	groups = {food_flour = 1, flammable = 1},
 })
 
-minetest.register_craftitem("farming:bread", {
+minetest.register_craftitem("farm:bread", {
 	description = S("Bread"),
-	inventory_image = "farming_bread.png",
+	inventory_image = "farm_bread.png",
 	on_use = minetest.item_eat(5),
 	groups = {food_bread = 1, flammable = 2},
 })
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "farming:flour",
-	recipe = {"farming:wheat", "farming:wheat", "farming:wheat", "farming:wheat"}
+	output = "farm:flour",
+	recipe = {"farm:wheat", "farm:wheat", "farm:wheat", "farm:wheat"}
 })
 
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 15,
-	output = "farming:bread",
-	recipe = "farming:flour"
+	output = "farm:bread",
+	recipe = "farm:flour"
 })
 
 
 -- Cotton
 
-farming.register_plant("farming:cotton", {
+farm.register_plant("farm:cotton", {
 	description = S("Cotton Seed"),
 	harvest_description = S("Cotton"),
-	inventory_image = "farming_cotton_seed.png",
+	inventory_image = "farm_cotton_seed.png",
 	steps = 8,
 	minlight = 13,
 	maxlight = minetest.LIGHT_MAX,
@@ -71,7 +55,7 @@ farming.register_plant("farming:cotton", {
 	groups = {flammable = 4},
 })
 
-function farming.add_cotton_to_biome(biome, dirt)
+function farm.add_cotton_to_biome(biome, dirt)
 	minetest.debug("registering decoration cotton on ", biome, " and ", dirt) 
 	minetest.register_decoration({
 		name = biome..":cotton_wild",
@@ -89,29 +73,29 @@ function farming.add_cotton_to_biome(biome, dirt)
 		biomes = {biome},
 		y_max = 31000,
 		y_min = 1,
-		decoration = "farming:cotton_wild",
+		decoration = "farm:cotton_wild",
 	})
 end
 
-minetest.register_craftitem("farming:string", {
+minetest.register_craftitem("farm:string", {
 	description = S("String"),
-	inventory_image = "farming_string.png",
+	inventory_image = "farm_string.png",
 	groups = {flammable = 2},
 })
 
 minetest.register_craft({
 	output = "wool:white",
 	recipe = {
-		{"farming:cotton", "farming:cotton"},
-		{"farming:cotton", "farming:cotton"},
+		{"farm:cotton", "farm:cotton"},
+		{"farm:cotton", "farm:cotton"},
 	}
 })
 
 minetest.register_craft({
-	output = "farming:string 2",
+	output = "farm:string 2",
 	recipe = {
-		{"farming:cotton"},
-		{"farming:cotton"},
+		{"farm:cotton"},
+		{"farm:cotton"},
 	}
 })
 
@@ -119,18 +103,18 @@ minetest.register_craft({
 -- Straw
 
 minetest.register_craft({
-	output = "farming:straw 3",
+	output = "farm:straw 3",
 	recipe = {
-		{"farming:wheat", "farming:wheat", "farming:wheat"},
-		{"farming:wheat", "farming:wheat", "farming:wheat"},
-		{"farming:wheat", "farming:wheat", "farming:wheat"},
+		{"farm:wheat", "farm:wheat", "farm:wheat"},
+		{"farm:wheat", "farm:wheat", "farm:wheat"},
+		{"farm:wheat", "farm:wheat", "farm:wheat"},
 	}
 })
 
 minetest.register_craft({
-	output = "farming:wheat 3",
+	output = "farm:wheat 3",
 	recipe = {
-		{"farming:straw"},
+		{"farm:straw"},
 	}
 })
 
@@ -139,25 +123,25 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "farming:wheat",
+	recipe = "farm:wheat",
 	burntime = 1,
 })
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "farming:cotton",
+	recipe = "farm:cotton",
 	burntime = 1,
 })
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "farming:string",
+	recipe = "farm:string",
 	burntime = 1,
 })
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "farming:hoe_wood",
+	recipe = "farm:hoe_wood",
 	burntime = 5,
 })
 
@@ -166,9 +150,9 @@ minetest.register_craft({
 
 if minetest.global_exists("dungeon_loot") then
 	dungeon_loot.register({
-		{name = "farming:string", chance = 0.5, count = {1, 8}},
-		{name = "farming:wheat", chance = 0.5, count = {2, 5}},
-		{name = "farming:seed_cotton", chance = 0.4, count = {1, 4},
+		{name = "farm:string", chance = 0.5, count = {1, 8}},
+		{name = "farm:wheat", chance = 0.5, count = {2, 5}},
+		{name = "farm:seed_cotton", chance = 0.4, count = {1, 4},
 			types = {"normal"}},
 	})
 end

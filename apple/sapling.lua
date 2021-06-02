@@ -27,7 +27,7 @@ minetest.register_node("apple:sapling", {
     },
     groups = {snappy = 2, dig_immediate = 3, flammable = 2,
         attached_node = 1, sapling = 1},
-    sounds = leaves_sounds,
+    sounds = wood.leaves_sounds,
 
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))

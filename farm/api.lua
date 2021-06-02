@@ -1,13 +1,13 @@
 -- farming/api.lua
 
 -- support for MT game translation.
-local S = farming.get_translator
+local S = minetest.get_translator("farm")
 
 -- Wear out hoes, place soil
 -- TODO Ignore group:flower
-farming.registered_plants = {}
+farm.registered_plants = {}
 
-farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
+farm.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	local pt = pointed_thing
 	-- check if pointing at a node
 	if not pt then
@@ -77,7 +77,7 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 end
 
 -- Register new hoes
-farming.register_hoe = function(name, def)
+farm.register_hoe = function(name, def)
 	-- Check for : prefix (register new hoes in your mod's namespace)
 	if name:sub(1,1) ~= ":" then
 		name = ":" .. name
@@ -97,7 +97,7 @@ farming.register_hoe = function(name, def)
 		description = def.description,
 		inventory_image = def.inventory_image,
 		on_use = function(itemstack, user, pointed_thing)
-			return farming.hoe_on_use(itemstack, user, pointed_thing, def.max_uses)
+			return farm.hoe_on_use(itemstack, user, pointed_thing, def.max_uses)
 		end,
 		groups = def.groups,
 		sound = {breaks = "tool_breaks"},
@@ -130,7 +130,7 @@ local function tick_again(pos)
 end
 
 -- Seed placement
-farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
+farm.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	local pt = pointed_thing
 	-- check if pointing at a node
 	if not pt then
@@ -188,7 +188,7 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	return itemstack
 end
 
-farming.grow_plant = function(pos, elapsed)
+farm.grow_plant = function(pos, elapsed)
 	local node = minetest.get_node(pos)
 	local name = node.name
 	local def = minetest.registered_nodes[name]
@@ -252,7 +252,7 @@ farming.grow_plant = function(pos, elapsed)
 end
 
 -- Register plants
-farming.register_plant = function(name, def)
+farm.register_plant = function(name, def)
 	local mname = name:split(":")[1]
 	local pname = name:split(":")[2]
 
@@ -279,7 +279,7 @@ farming.register_plant = function(name, def)
 		def.fertility = {}
 	end
 
-	farming.registered_plants[pname] = def
+	farm.registered_plants[pname] = def
 
 	-- Register seed
 	local lbm_nodes = {mname .. ":seed_" .. pname}
@@ -317,10 +317,10 @@ farming.register_plant = function(name, def)
 					pointed_thing) or itemstack
 			end
 
-			return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
+			return farm.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
 		end,
 		next_plant = mname .. ":" .. pname .. "_1",
-		on_timer = farming.grow_plant,
+		on_timer = farm.grow_plant,
 		minlight = def.minlight,
 		maxlight = def.maxlight,
 	})
@@ -373,7 +373,7 @@ farming.register_plant = function(name, def)
 			groups = nodegroups,
 			sounds = grass.sounds,
 			next_plant = next_plant,
-			on_timer = farming.grow_plant,
+			on_timer = farm.grow_plant,
 			minlight = def.minlight,
 			maxlight = def.maxlight,
 		})

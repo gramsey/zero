@@ -1,21 +1,21 @@
--- farming/nodes.lua
+-- farm/nodes.lua
 
 -- support for MT game translation.
-local S = farming.get_translator
+local S = minetest.get_translator("farm")
 
 minetest.override_item("dirt:dirt", {
 	soil = {
 		base = "dirt:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "farm:soil",
+		wet = "farm:soil_wet"
 	}
 })
 
 minetest.override_item("dirt:dry", {
 	soil = {
 		base = "dirt:dry",
-		dry = "farming:dry_soil",
-		wet = "farming:dry_soil_wet"
+		dry = "farm:dry_soil",
+		wet = "farm:dry_soil_wet"
 	}
 })
 
@@ -23,85 +23,85 @@ minetest.override_item("dirt:dry", {
 minetest.override_item("grass:dirt", {
 	soil = {
 		base = "grass:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "farm:soil",
+		wet = "farm:soil_wet"
 	}
 })
 
 minetest.override_item("grass:dirt_dry", {
 	soil = {
 		base = "grass:dirt_dry",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "farm:soil",
+		wet = "farm:soil_wet"
 	}
 })
 --[[
 minetest.override_item("default:dirt_with_rainforest_litter", {
 	soil = {
 		base = "default:dirt_with_rainforest_litter",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "farm:soil",
+		wet = "farm:soil_wet"
 	}
 })
 
 minetest.override_item("default:dirt_with_coniferous_litter", {
 	soil = {
 		base = "default:dirt_with_coniferous_litter",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "farm:soil",
+		wet = "farm:soil_wet"
 	}
 })
 ]]
 
-minetest.register_node("farming:soil", {
+minetest.register_node("farm:soil", {
 	description = S("Soil"),
-	tiles = {"dirt.png^farming_soil.png", "dirt.png"},
+	tiles = {"dirt.png^farm_soil.png", "dirt.png"},
 	drop = "dirt:dirt",
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=2, grassland = 1, field = 1},
 	sounds = dirt.sounds,
 	soil = {
 		base = "dirt:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "farm:soil",
+		wet = "farm:soil_wet"
 	}
 })
 
-minetest.register_node("farming:soil_wet", {
+minetest.register_node("farm:soil_wet", {
 	description = S("Wet Soil"),
-	tiles = {"dirt.png^farming_soil_wet.png", "dirt.png^farming_soil_wet_side.png"},
+	tiles = {"dirt.png^farm_soil_wet.png", "dirt.png^farm_soil_wet_side.png"},
 	drop = "dirt:dirt",
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=3, wet = 1, grassland = 1, field = 1},
 	sounds = dirt.sounds,
 	soil = {
 		base = "dirt:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "farm:soil",
+		wet = "farm:soil_wet"
 	}
 })
 
-minetest.register_node("farming:dry_soil", {
+minetest.register_node("farm:dry_soil", {
 	description = S("Savanna Soil"),
-	tiles = {"dirt_dry.png^farming_soil.png", "dirt_dry.png"},
+	tiles = {"dirt_dry.png^farm_soil.png", "dirt_dry.png"},
 	drop = "dirt:dry",
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=2, grassland = 1, field = 1},
 	sounds = dirt.sounds,
 	soil = {
 		base = "dirt:dry",
-		dry = "farming:dry_soil",
-		wet = "farming:dry_soil_wet"
+		dry = "farm:dry_soil",
+		wet = "farm:dry_soil_wet"
 	}
 })
 
-minetest.register_node("farming:dry_soil_wet", {
+minetest.register_node("farm:dry_soil_wet", {
 	description = S("Wet Savanna Soil"),
-	tiles = {"dirt_dry.png^farming_soil_wet.png", "dirt_dry.png^farming_soil_wet_side.png"},
+	tiles = {"dirt_dry.png^farm_soil_wet.png", "dirt_dry.png^farm_soil_wet_side.png"},
 	drop = "dirt:dirt_dry",
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=3, wet = 1, grassland = 1, field = 1},
 	sounds = dirt.sounds,
 	soil = {
 		base = "dirt:dirt_dry",
-		dry = "farming:dry_soil",
-		wet = "farming:dry_soil_wet"
+		dry = "farm:dry_soil",
+		wet = "farm:dry_soil_wet"
 	}
 })
 --[[
@@ -109,39 +109,39 @@ minetest.override_item("default:desert_sand", {
 	groups = {crumbly=3, falling_node=1, sand=1, soil = 1},
 	soil = {
 		base = "default:desert_sand",
-		dry = "farming:desert_sand_soil",
-		wet = "farming:desert_sand_soil_wet"
+		dry = "farm:desert_sand_soil",
+		wet = "farm:desert_sand_soil_wet"
 	}
 })
-minetest.register_node("farming:desert_sand_soil", {
+minetest.register_node("farm:desert_sand_soil", {
 	description = S("Desert Sand Soil"),
 	drop = "default:desert_sand",
-	tiles = {"farming_desert_sand_soil.png", "default_desert_sand.png"},
+	tiles = {"farm_desert_sand_soil.png", "default_desert_sand.png"},
 	groups = {crumbly=3, not_in_creative_inventory = 1, falling_node=1, sand=1, soil = 2, desert = 1, field = 1},
 	sounds = default.node_sound_sand_defaults(),
 	soil = {
 		base = "default:desert_sand",
-		dry = "farming:desert_sand_soil",
-		wet = "farming:desert_sand_soil_wet"
+		dry = "farm:desert_sand_soil",
+		wet = "farm:desert_sand_soil_wet"
 	}
 })
 
-minetest.register_node("farming:desert_sand_soil_wet", {
+minetest.register_node("farm:desert_sand_soil_wet", {
 	description = S("Wet Desert Sand Soil"),
 	drop = "default:desert_sand",
-	tiles = {"farming_desert_sand_soil_wet.png", "farming_desert_sand_soil_wet_side.png"},
+	tiles = {"farm_desert_sand_soil_wet.png", "farm_desert_sand_soil_wet_side.png"},
 	groups = {crumbly=3, falling_node=1, sand=1, not_in_creative_inventory=1, soil=3, wet = 1, desert = 1, field = 1},
 	sounds = default.node_sound_sand_defaults(),
 	soil = {
 		base = "default:desert_sand",
-		dry = "farming:desert_sand_soil",
-		wet = "farming:desert_sand_soil_wet"
+		dry = "farm:desert_sand_soil",
+		wet = "farm:desert_sand_soil_wet"
 	}
 })
 ]]
-minetest.register_node("farming:straw", {
+minetest.register_node("farm:straw", {
 	description = S("Straw"),
-	tiles = {"farming_straw.png"},
+	tiles = {"farm_straw.png"},
 	is_ground_content = false,
 	groups = {snappy=3, flammable=4, fall_damage_add_percent=-30},
 	sounds = grass.sounds,
@@ -150,7 +150,7 @@ minetest.register_node("farming:straw", {
 -- Registered before the stairs so the stairs get fuel recipes.
 minetest.register_craft({
 	type = "fuel",
-	recipe = "farming:straw",
+	recipe = "farm:straw",
 	burntime = 3,
 })
 
@@ -211,26 +211,26 @@ for i = 1, 5 do
 	minetest.override_item("grass:grass_"..i, {drop = {
 		max_items = 1,
 		items = {
-			{items = {"farming:seed_cotton"}, rarity = 8},
-			{items = {"farming:seed_wheat"}, rarity = 5},
+			{items = {"farm:seed_cotton"}, rarity = 8},
+			{items = {"farm:seed_wheat"}, rarity = 5},
 			{items = {"grass:grass_1"}},
 		}
 	}})
 end
 
-minetest.register_node("farming:cotton_wild", {
+minetest.register_node("farm:cotton_wild", {
 	description = S("Wild Cotton"),
 	drawtype = "plantlike",
 	waving = 1,
-	tiles = {"farming_cotton_wild.png"},
-	inventory_image = "farming_cotton_wild.png",
-	wield_image = "farming_cotton_wild.png",
+	tiles = {"farm_cotton_wild.png"},
+	inventory_image = "farm_cotton_wild.png",
+	wield_image = "farm_cotton_wild.png",
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy = 3, attached_node = 1, flammable = 4, oddly_breakable_by_hand = 3},
-	drop = "farming:seed_cotton",
+	drop = "farm:seed_cotton",
 	sounds = grass.sounds,
 	selection_box = {
 		type = "fixed",
