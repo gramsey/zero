@@ -1,0 +1,139 @@
+local S = minetest.get_translator("bug")
+
+minetest.register_node("bug:firefly", {
+	description = S("Firefly"),
+	drawtype = "plantlike",
+	tiles = {{
+		name = "bug_firefly_animated.png",
+		animation = {
+			type = "vertical_frames",
+			aspect_w = 16,
+			aspect_h = 16,
+			length = 1.5
+		},
+	}},
+	inventory_image = "bug_firefly.png",
+	wield_image =  "bug_firefly.png",
+	waving = 1,
+	paramtype = "light",
+	sunlight_propagates = true,
+	buildable_to = true,
+	walkable = false,
+	groups = {catchable = 1},
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.1, -0.1, -0.1, 0.1, 0.1, 0.1},
+	},
+	light_source = 6,
+	floodable = true,
+	on_place = function(itemstack, placer, pointed_thing)
+		local player_name = placer:get_player_name()
+		local pos = pointed_thing.above
+
+		if not minetest.is_protected(pos, player_name) and
+				not minetest.is_protected(pointed_thing.under, player_name) and
+				minetest.get_node(pos).name == "air" then
+			minetest.set_node(pos, {name = "bug:firefly"})
+			minetest.get_node_timer(pos):start(1)
+			itemstack:take_item()
+		end
+		return itemstack
+	end,
+	on_timer = function(pos, elapsed)
+		if minetest.get_node_light(pos) > 11 then
+			minetest.set_node(pos, {name = "bug:hidden_firefly"})
+		end
+		minetest.get_node_timer(pos):start(30)
+	end
+})
+
+minetest.register_node("bug:hidden_firefly", {
+	description = S("Hidden Firefly"),
+	drawtype = "airlike",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	drop = "",
+	groups = {not_in_creative_inventory = 1},
+	floodable = true,
+	on_place = function(itemstack, placer, pointed_thing)
+		local player_name = placer:get_player_name()
+		local pos = pointed_thing.above
+
+		if not minetest.is_protected(pos, player_name) and
+				not minetest.is_protected(pointed_thing.under, player_name) and
+				minetest.get_node(pos).name == "air" then
+			minetest.set_node(pos, {name = "bug:hidden_firefly"})
+			minetest.get_node_timer(pos):start(1)
+			itemstack:take_item()
+		end
+		return itemstack
+	end,
+	on_timer = function(pos, elapsed)
+		if minetest.get_node_light(pos) <= 11 then
+			minetest.set_node(pos, {name = "bug:firefly"})
+		end
+		minetest.get_node_timer(pos):start(30)
+	end
+})
+
+
+function bug.add_firefly_to_biome(biome)
+	minetest.register_decoration({
+		name = biome..":firefly_low",
+		deco_type = "simple",
+		place_on = { "group:soil" },
+		place_offset_y = 2,
+		sidelen = 80,
+		fill_ratio = 0.0005,
+		biomes = {biome},
+		y_max = 31000,
+		y_min = -1,
+		decoration = "bug:hidden_firefly",
+	})
+
+	minetest.register_decoration({
+		name = biome..":firefly_high",
+		deco_type = "simple",
+		place_on = { "group:soil" },
+		place_offset_y = 3,
+		sidelen = 80,
+		fill_ratio = 0.0005,
+		biomes = { biome },
+		y_max = 31000,
+		y_min = -1,
+		decoration = "bug:hidden_firefly",
+	})
+
+	-- get decoration IDs
+	local firefly_low = minetest.get_decoration_id(biome..":firefly_low")
+	local firefly_high = minetest.get_decoration_id(biome..":firefly_high")
+
+	minetest.set_gen_notify({decoration = true}, {firefly_low, firefly_high})
+
+	-- start nodetimers
+	minetest.register_on_generated(function(minp, maxp, blockseed)
+		local gennotify = minetest.get_mapgen_object("gennotify")
+		local poslist = {}
+
+		for _, pos in ipairs(gennotify["decoration#"..firefly_low] or {}) do
+			local firefly_low_pos = {x = pos.x, y = pos.y + 3, z = pos.z}
+			table.insert(poslist, firefly_low_pos)
+		end
+		for _, pos in ipairs(gennotify["decoration#"..firefly_high] or {}) do
+			local firefly_high_pos = {x = pos.x, y = pos.y + 4, z = pos.z}
+			table.insert(poslist, firefly_high_pos)
+		end
+
+		if #poslist ~= 0 then
+			for i = 1, #poslist do
+				local pos = poslist[i]
+				minetest.get_node_timer(pos):start(1)
+			end
+		end
+	end)
+end
+

@@ -1,0 +1,3 @@
+alias_simple (Use simple names without mod prefix) bool true
+alias_map (Use this for map generation) bool true
+alias_default (Alias default mod for legacy compatibility) bool false

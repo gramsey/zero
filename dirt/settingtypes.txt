@@ -1,0 +1,3 @@
+[Alias]
+alias_simple (Use simple names without mod prefix) bool true
+alias_default (Alias default mod for legacy compatibility) bool false
