@@ -304,7 +304,7 @@ farm.register_plant = function(name, def)
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 		},
 		fertility = def.fertility,
-		sounds = grass.sounds,
+		sounds = dirt.grass_sounds,
 
 		on_place = function(itemstack, placer, pointed_thing)
 			local under = pointed_thing.under
@@ -371,7 +371,7 @@ farm.register_plant = function(name, def)
 				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 			},
 			groups = nodegroups,
-			sounds = grass.sounds,
+			sounds = dirt.grass_sounds,
 			next_plant = next_plant,
 			on_timer = farm.grow_plant,
 			minlight = def.minlight,

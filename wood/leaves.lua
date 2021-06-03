@@ -1,6 +1,6 @@
 
-wood.leaves_sounds = table.copy(grass.sounds)
-wood.leaves_sounds.dug = {name = "grass_footstep", gain = 0.7}
+wood.leaves_sounds = table.copy(dirt.sounds)
+wood.leaves_sounds.dug = {name = "dirt_dig", gain = 0.7}
 
 local after_place_leaves = function(pos, placer, itemstack, pointed_thing)
     if placer and placer:is_player() then

@@ -93,7 +93,7 @@ function bug.add_butterfly_to_biome(name, biome)
 	minetest.register_decoration({
 		name = name,
 		deco_type = "simple",
-		place_on = {"grass:dirt"},
+		place_on = {"dirt:grass"},
 		place_offset_y = 2,
 		sidelen = 80,
 		fill_ratio = 0.005,

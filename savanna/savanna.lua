@@ -2,7 +2,7 @@
 local cave_liquid = {"water:water_source"};
 minetest.register_biome({
 		name = "savanna",
-		node_top = "grass:dirt_dry",
+		node_top = "dirt:grass_dry",
 		depth_top = 1,
 		node_filler = "dirt:dry",
 		depth_filler = 1,
@@ -69,9 +69,19 @@ minetest.register_biome({
 	humidity_point = 42,
 })
 
-grass.add_dry_to_biome("savanna")
-acacia.add_to_biome("savanna")
-acacia.add_log_to_biome("savanna")
+
+if(minetest.get_modpath("papyrus")) ~= nil then
+	papyrus.add_to_biome_on_dirt("grassland_ocean")
+end
+
+if(minetest.get_modpath("grass")) ~= nil then
+	grass.add_dry_to_biome("savanna")
+end
+
+if(minetest.get_modpath("acacia")) ~= nil then
+	acacia.add_to_biome("savanna")
+	acacia.add_log_to_biome("savanna")
+end
 
 if minetest.get_modpath("papyrus") then
 	papyrus.add_to_biome_on_dry_dirt("savanna_ocean")

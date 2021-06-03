@@ -10,6 +10,6 @@ stair.register_stair_and_slab(
 	{"farm_straw.png"},
 	S("Straw Stair"),
 	S("Straw Slab"),
-	grass.sounds,
+	dirt.grass_sounds,
 	true
 )

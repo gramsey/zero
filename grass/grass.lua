@@ -1,19 +1,6 @@
 
 local S = minetest.get_translator("grass")
 
--- GRASS BLOCK
-grass.sounds = table.copy(dirt.sounds)
-grass.sounds.footstep = {name = "grass_footstep", gain = 0.4}
-
-minetest.register_node("grass:dirt", {
-    description = S("Dirt with Grass"),
-    tiles = {"grass.png", "dirt.png", 
-		{name = "dirt.png^grass_side.png", tileable_vertical = false}},
-    groups = {crumbly = 3, soil = 1, spread_to_dirt = 1, oddly_breakable_by_hand=2},
-    drop = "dirt:dirt",
-    sounds = grass.sounds,
-})
-
 -- GRASS TUFTS 
 minetest.register_node("grass:grass_1", {
 	description = S("Grass"),
@@ -29,7 +16,7 @@ minetest.register_node("grass:grass_1", {
 	buildable_to = true,
 	groups = {snappy = 3, flora = 1, attached_node = 1, grass = 1,
 		normal_grass = 1, flammable = 1, oddly_breakable_by_hand=2},
-	sounds = grass.sounds,
+	sounds = dirt.grass_sounds,
 	selection_box = {
 		type = "fixed",
 		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
@@ -60,7 +47,7 @@ for i = 2, 5 do
 		groups = {snappy = 3, flora = 1, attached_node = 1,
 			not_in_creative_inventory = 1, grass = 1,
 			normal_grass = 1, flammable = 1, oddly_breakable_by_hand=2},
-		sounds = grass.sounds,
+		sounds = dirt.grass_sounds,
 		selection_box = {
 			type = "fixed",
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
@@ -73,7 +60,7 @@ local function register_grass_decoration(biome, offset, scale, length)
 	minetest.register_decoration({
 		name = biome .. ":grass_decoration_" .. length,
 		deco_type = "simple",
-		place_on = {"grass:dirt"},
+		place_on = {"dirt:grass"},
 		sidelen = 16,
 		noise_params = {
 			offset = offset,

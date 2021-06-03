@@ -14,7 +14,7 @@ minetest.register_node("grass:fern", {
 	buildable_to = true,
 	groups = {snappy = 3, flammable = 3, flora = 1, grass = 1,
 		fern = 1, attached_node = 1},
-	sounds = grass.sounds,
+	sounds = dirt.grass_sounds,
 	selection_box = {
 		type = "fixed",
 		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -0.25, 6 / 16},
@@ -45,10 +45,51 @@ for i = 2, 3 do
 		groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1,
 			grass = 1, fern = 1, not_in_creative_inventory = 1},
 		drop = "grass:fern",
-		sounds = grass.sounds,
+		sounds = dirt.grass_sounds,
 		selection_box = {
 			type = "fixed",
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -0.25, 6 / 16},
 		},
 	})
+end
+
+local function copy_with_defaults(t, defaults)
+	local def_table = table.copy(defaults)
+
+	for k, v in pairs(t) do 
+		def_table[k] = v 
+	end
+	return def_table
+end
+
+local function register_fern_decoration(biome, length, def)
+	def = def or {}
+
+	local fern_def = {
+		name = biome..":fern_" .. length,
+		deco_type = "simple",
+		place_on = {"dirt:litter", "dirt:dry_litter"},
+		sidelen = 16,
+		noise_params = {
+			offset = 0,
+			scale = 0.2,
+			spread = {x = 100, y = 100, z = 100},
+			seed = 3823 + length,
+			octaves = 3,
+			persist = 0.7
+		},
+		biomes = { biome },
+		y_max = 31000,
+		y_min = 6,
+		decoration = "default:fern_" .. length,
+	}
+
+	fern_def = copy_with_defaults(def, fern_def) 
+	minetest.register_decoration(fern_def)
+end
+
+function grass.add_fern_to_biome(biome, def) 
+	register_fern_decoration(biome, 3, def)
+	register_fern_decoration(biome, 2, def)
+	register_fern_decoration(biome, 1, def)
 end

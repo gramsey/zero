@@ -9,12 +9,12 @@ if(minetest.get_modpath("stair")) ~= nil then
 end
 
 if(minetest.get_modpath("lava")) ~= nil then
-	other_cave_liquid = "lava:lava";
+	other_cave_liquid = "lava:lava_source";
 end
 
 minetest.register_biome({
 	name = "orchard",
-	node_top = "grass:dirt",
+	node_top = "dirt:grass",
 	depth_top = 1,
 	node_filler = "dirt:dirt",
 	depth_filler = 3,
@@ -77,8 +77,10 @@ minetest.register_biome({
 	humidity_point = 68,
 })
 
-apple.add_to_biome("orchard")
-apple.add_log_to_biome("orchard")
+if (minetest.get_modpath("apple") ~= nil) then
+	apple.add_to_biome("orchard")
+	apple.add_log_to_biome("orchard")
+end
 
 if (minetest.get_modpath("mushroom") ~= nil) then
 	mushroom.add_all_to_biome("orchard")

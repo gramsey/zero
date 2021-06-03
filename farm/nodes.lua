@@ -20,38 +20,37 @@ minetest.override_item("dirt:dry", {
 })
 
 
-minetest.override_item("grass:dirt", {
+minetest.override_item("dirt:grass", {
 	soil = {
-		base = "grass:dirt",
+		base = "dirt:grass",
 		dry = "farm:soil",
 		wet = "farm:soil_wet"
 	}
 })
 
-minetest.override_item("grass:dirt_dry", {
+minetest.override_item("dirt:grass_dry", {
 	soil = {
-		base = "grass:dirt_dry",
-		dry = "farm:soil",
-		wet = "farm:soil_wet"
-	}
-})
---[[
-minetest.override_item("default:dirt_with_rainforest_litter", {
-	soil = {
-		base = "default:dirt_with_rainforest_litter",
+		base = "dirt:grass_dry",
 		dry = "farm:soil",
 		wet = "farm:soil_wet"
 	}
 })
 
-minetest.override_item("default:dirt_with_coniferous_litter", {
+minetest.override_item("dirt:litter", {
 	soil = {
-		base = "default:dirt_with_coniferous_litter",
+		base = "dirt:litter",
 		dry = "farm:soil",
 		wet = "farm:soil_wet"
 	}
 })
-]]
+
+minetest.override_item("dirt:dry_litter", {
+	soil = {
+		base = "dirt:dry_litter",
+		dry = "farm:soil",
+		wet = "farm:soil_wet"
+	}
+})
 
 minetest.register_node("farm:soil", {
 	description = S("Soil"),
@@ -144,7 +143,7 @@ minetest.register_node("farm:straw", {
 	tiles = {"farm_straw.png"},
 	is_ground_content = false,
 	groups = {snappy=3, flammable=4, fall_damage_add_percent=-30},
-	sounds = grass.sounds,
+	sounds = dirt.grass_sounds,
 })
 
 -- Registered before the stairs so the stairs get fuel recipes.
@@ -231,7 +230,7 @@ minetest.register_node("farm:cotton_wild", {
 	buildable_to = true,
 	groups = {snappy = 3, attached_node = 1, flammable = 4, oddly_breakable_by_hand = 3},
 	drop = "farm:seed_cotton",
-	sounds = grass.sounds,
+	sounds = dirt.grass_sounds,
 	selection_box = {
 		type = "fixed",
 		fixed = {-6 / 16, -8 / 16, -6 / 16, 6 / 16, 5 / 16, 6 / 16},

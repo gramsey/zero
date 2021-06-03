@@ -1,12 +1,12 @@
 local S = minetest.get_translator("apple");
 
 apple.sounds = {
-	dug = grass.sounds.dug,
-	place = grass.sounds.place,
+	dug = dirt.grass_sounds.dug,
+	place = dirt.grass_sounds.place,
 }
 
 apple.leaves = {}
-apple.leaves.sounds = grass.sounds 
+apple.leaves.sounds = dirt.grass_sounds 
 
 minetest.register_node("apple:tree", {
     description = S("Apple Tree"),

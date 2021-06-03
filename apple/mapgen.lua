@@ -2,7 +2,7 @@
 function apple.add_to_biome(biome, place_on_node)
 
 	local sch_tree = minetest.get_modpath("apple") .. "/schematics/apple_tree.mts";
-	place_on_node = place_on_node or "grass:dirt"
+	place_on_node = place_on_node or "dirt:grass"
 
 	minetest.debug("adding ", biome..":apple_trees", " on ", place_on_node)
 
@@ -34,7 +34,7 @@ function apple.add_log_to_biome(biome, place_on_node)
 	if (minetest.get_modpath("mushroom") ~= nil) then
 		sch_log = minetest.get_modpath("apple").."/schematics/apple_log_with_mushroom.mts"
 	end
-	place_on_node = place_on_node or "grass:dirt"
+	place_on_node = place_on_node or "dirt:grass"
 
 	minetest.debug("adding ", biome..":apple_logs", " on ", place_on_node)
 

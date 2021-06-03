@@ -1,15 +1,5 @@
 local S = minetest.get_translator("grass")
 
--- DRY GRASS BLOCK
-minetest.register_node("grass:dirt_dry", {
-	description = S("Dirt with Dry Grass"),
-	tiles = {"grass_dry.png", "dirt_dry.png",
-		{name = "dirt_dry.png^grass_dry_side.png", tileable_vertical = false}},
-	groups = {crumbly = 3, soil = 1, spread_to_dry_dirt = 1, oddly_breakable_by_hand=2},
-	drop = "dirt:dry",
-	sounds = grass.sounds
-})
-
 -- DRY GRASS TUFTS
 minetest.register_node("grass:dry", {
 	description = S("Dry Grass"),
@@ -24,7 +14,7 @@ minetest.register_node("grass:dry", {
 	buildable_to = true,
 	groups = {snappy = 3, flammable = 3, flora = 1,
 		attached_node = 1, grass = 1, grass_dry = 1},
-	sounds = grass.sounds,
+	sounds = dirt.grass_sounds,
 	selection_box = {
 		type = "fixed",
 		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
@@ -54,7 +44,7 @@ for i = 2, 5 do
 		groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1,
 			not_in_creative_inventory = 1, grass = 1, grass_dry = 1},
 		drop = "grass:dry",
-		sounds = grass.sounds,
+		sounds = dirt.grass_sounds,
 		selection_box = {
 			type = "fixed",
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -1 / 16, 6 / 16},
@@ -67,7 +57,7 @@ local function register_dry_grass_decoration(biome, offset, scale, length)
 	minetest.register_decoration({
 		name = biome .. ":dry_grass_decoration_" .. length,
 		deco_type = "simple",
-		place_on = {"grass:dry_dirt"},
+		place_on = {"dirt:grass_dry"},
 		sidelen = 16,
 		noise_params = {
 			offset = offset,
@@ -85,6 +75,7 @@ local function register_dry_grass_decoration(biome, offset, scale, length)
 end
 
 function grass.add_dry_to_biome(biome) 
+	minetest.debug("adding dry grass decoration")
 	register_dry_grass_decoration(biome, -0.03,  0.09,  5)
 	register_dry_grass_decoration(biome, -0.015, 0.075, 4)
 	register_dry_grass_decoration(biome, 0,      0.06,  3)

@@ -2,7 +2,7 @@
 function acacia.add_to_biome(biome, place_on_node)
 
 	local sch_tree = minetest.get_modpath("acacia") .. "/schematics/acacia_tree.mts";
-	place_on_node = place_on_node or "grass:dirt_dry"
+	place_on_node = place_on_node or "dirt:grass_dry"
 
 	minetest.debug("adding ", biome..":acacia_trees", " on ", place_on_node)
 
@@ -31,7 +31,7 @@ end
 function acacia.add_log_to_biome(biome, place_on_node)
 
 	local sch_log = minetest.get_modpath("acacia") .. "/schematics/acacia_log.mts"
-	place_on_node = place_on_node or "grass:dirt_dry"
+	place_on_node = place_on_node or "dirt:grass_dry"
 
 	minetest.debug("adding ", biome..":acacia_logs", " on ", place_on_node)
 

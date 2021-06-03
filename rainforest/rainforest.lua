@@ -1,7 +1,7 @@
 
 minetest.register_biome({
 	name = "rainforest",
-	node_top = "jungle:litter",
+	node_top = "dirt:litter",
 	depth_top = 1,
 	node_filler = "dirt:dirt",
 	depth_filler = 3,
@@ -70,26 +70,33 @@ minetest.register_biome({
 	humidity_point = 65,
 })
 
-jungle.add_to_biome("rainforest")
-jungle.add_emergent_to_biome("rainforest")
-jungle.add_log_to_biome("rainforest")
+if(minetest.get_modpath("grass")) ~= nil then
+	grass.add_jungle_to_biome("rainforest")
+	grass.add_fern_to_biome("rainforest")
+end
 
--- add additional trees at water level for swamp
-jungle.add_to_biome("rainforest_swamp", {
-	name = "rainforest:swamp_trees",
-	place_on = {"default:dirt"},
-	sidelen = 16,
-	noise_params = { 
-		offset = 0.0, 
-		scale = -0.1, 
-		spread = {x = 200, y = 200, z = 200},
-		seed = 354, 
-		octaves = 1, 
-		persist = 0.5 
-	},
-	y_max = 0,
-	y_min = -1,
-})
+if(minetest.get_modpath("jungle")) ~= nil then
+	jungle.add_to_biome("rainforest")
+	jungle.add_emergent_to_biome("rainforest")
+	jungle.add_log_to_biome("rainforest")
+
+	-- add additional trees at water level for swamp
+	jungle.add_to_biome("rainforest_swamp", {
+		name = "rainforest:swamp_trees",
+		place_on = {"default:dirt"},
+		sidelen = 16,
+		noise_params = { 
+			offset = 0.0, 
+			scale = -0.1, 
+			spread = {x = 200, y = 200, z = 200},
+			seed = 354, 
+			octaves = 1, 
+			persist = 0.5 
+		},
+		y_max = 0,
+		y_min = -1,
+	})
+end
 
 if(minetest.get_modpath("papyrus")) ~= nil then
 	--papyrus.add_to_biome_on_dirt("rainforest_swamp")

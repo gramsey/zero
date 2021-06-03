@@ -1,6 +1,6 @@
 minetest.register_biome({
 	name = "grassland",
-	node_top = "grass:dirt",
+	node_top = "dirt:grass",
 	depth_top = 1, 
 	node_filler = "dirt:dirt",
 	depth_filler = 1, 
@@ -68,9 +68,22 @@ minetest.register_biome({
 	heat_point = 50,
 	humidity_point = 35,
 })   
-grass.add_to_biome("grassland")
-flower.add_all_flowers_to_biome("grassland")
-bug.add_butterfly_to_biome("grassland")
-bug.add_firefly_to_biome("grassland")
-papyrus.add_to_biome_on_dirt("grassland_ocean")
+
+if(minetest.get_modpath("grass")) ~= nil then
+	grass.add_to_biome("grassland")
+end
+
+if(minetest.get_modpath("flower")) ~= nil then
+	flower.add_all_flowers_to_biome("grassland")
+end
+
+if(minetest.get_modpath("bug")) ~= nil then
+	bug.add_butterfly_to_biome("grassland")
+	bug.add_firefly_to_biome("grassland")
+end
+
+if(minetest.get_modpath("papyrus")) ~= nil then
+	papyrus.add_to_biome_on_dirt("grassland_ocean")
+end
+
 

@@ -16,7 +16,7 @@ function jungle.add_to_biome(biome, def)
 	local tree_def = {
 		name = biome.."jungle_trees",
 		deco_type = "schematic",
-		place_on = {"jungle:litter"},
+		place_on = {"dirt:litter"},
 		sidelen = 80,
 		fill_ratio = 0.1,
 		biomes = { biome },
@@ -43,7 +43,7 @@ function jungle.add_log_to_biome(biome, def)
 	local log_def = {
 		name = biome..":jungle_logs",
 		deco_type = "schematic",
-		place_on = {"jungle:litter"},
+		place_on = {"dirt:litter"},
 		place_offset_y = 1,
 		sidelen = 80,
 		fill_ratio = 0.005,
@@ -53,7 +53,7 @@ function jungle.add_log_to_biome(biome, def)
 		schematic = schem,
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = "jungle:litter",
+		spawn_by = "dirt:litter",
 		num_spawn_by = 8,
 	}
 
@@ -73,7 +73,7 @@ function jungle.add_emergent_to_biome(biome, def)
 	local tree_def = {
 		name = biome..":jungle_trees_emergent",
 		deco_type = "schematic",
-		place_on = { "jungle:litter" },
+		place_on = { "dirt:litter" },
 		sidelen = 80,
 		noise_params = {
 			offset = 0.0,

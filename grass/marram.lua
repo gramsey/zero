@@ -13,7 +13,7 @@ minetest.register_node("grass:marram", {
 	buildable_to = true,
 	groups = {snappy = 3, flammable = 3, flora = 1, grass = 1, marram = 1,
 		attached_node = 1},
-	sounds = grass.sounds,
+	sounds = dirt.grass_sounds,
 	selection_box = {
 		type = "fixed",
 		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -0.25, 6 / 16},
@@ -43,7 +43,7 @@ for i = 2, 3 do
 		groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1,
 			grass = 1, marram = 1, not_in_creative_inventory = 1},
 		drop = "grass:marram",
-		sounds = grass.sounds,
+		sounds = dirt.grass_sounds,
 		selection_box = {
 			type = "fixed",
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -0.25, 6 / 16},

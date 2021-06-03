@@ -56,7 +56,7 @@ function flower.add_to_biome(name, biome, rarity)
 	minetest.register_decoration({
 		name = biome..":"..short_name,
 		deco_type = "simple",
-		place_on = {"grass:dirt"},
+		place_on = {"dirt:grass"},
 		sidelen = 16,
 		noise_params = {
 			offset = rarity or -0.03,
