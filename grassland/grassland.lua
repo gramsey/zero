@@ -68,9 +68,9 @@ minetest.register_biome({
 	heat_point = 50,
 	humidity_point = 35,
 })   
-
 grass.add_to_biome("grassland")
 flower.add_all_flowers_to_biome("grassland")
 bug.add_butterfly_to_biome("grassland")
 bug.add_firefly_to_biome("grassland")
 papyrus.add_to_biome_on_dirt("grassland_ocean")
+
