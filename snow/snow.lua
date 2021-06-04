@@ -53,3 +53,39 @@ minetest.register_node("snow:block", {
 		end
 	end,
 })
+
+function snow.add_to_biome(biome, def)
+	local snow_def =  {
+		name = biome..":patchy_snow",
+		deco_type = "simple",
+		place_on = {
+			"snow:permafrost_with_moss",
+			"snow:permafrost_with_stones",
+			"group:stone",
+			"group:soil",
+			"gravel:gravel"
+		},
+		sidelen = 4,
+		noise_params = {
+			offset = 0,
+			scale = 1.0,
+			spread = {x = 100, y = 100, z = 100},
+			seed = 172555,
+			octaves = 3,
+			persist = 1.0
+		},
+		biomes = { biome },
+		y_max = 50,
+		y_min = 1,
+		decoration = "snow:snow",
+	}
+
+	def = def or {}
+	for k, v in pairs(def) do 
+		snow_def[k] = v 
+	end
+
+	minetest.register_decoration(snow_def)
+
+end
+

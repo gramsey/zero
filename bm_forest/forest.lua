@@ -13,7 +13,7 @@ if(minetest.get_modpath("lava")) ~= nil then
 end
 
 minetest.register_biome({
-	name = "orchard",
+	name = "bm_forest",
 	node_top = "dirt:grass",
 	depth_top = 1,
 	node_filler = "dirt:dirt",
@@ -30,7 +30,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "orchard_shore",
+	name = "bm_forest_shore",
 	node_top = "dirt:dirt",
 	depth_top = 1,
 	node_filler = "dirt:dirt",
@@ -47,7 +47,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "orchard_ocean",
+	name = "bm_forest_ocean",
 	node_top = "sand:sand",
 	depth_top = 1,
 	node_filler = "sand:sand",
@@ -66,7 +66,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "orchard_under",
+	name = "bm_forest_under",
 	node_cave_liquid = {"water:water_source",  other_cave_liquid},
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = dungeon_alt,
@@ -78,19 +78,19 @@ minetest.register_biome({
 })
 
 if (minetest.get_modpath("apple") ~= nil) then
-	apple.add_to_biome("orchard")
-	apple.add_log_to_biome("orchard")
+	apple.add_to_biome("bm_forest")
+	apple.add_log_to_biome("bm_forest")
 end
 
 if (minetest.get_modpath("aspen") ~= nil) then
-	aspen.add_to_biome("orchard")
-	aspen.add_log_to_biome("orchard")
+	aspen.add_to_biome("bm_forest")
+	aspen.add_log_to_biome("bm_forest")
 end
 
 if (minetest.get_modpath("mushroom") ~= nil) then
-	mushroom.add_all_to_biome("orchard")
+	mushroom.add_all_to_biome("bm_forest")
 end
 
 if (minetest.get_modpath("papyrus") ~= nil) then
-	papyrus.add_to_biome_on_dirt("orchard_shore")
+	papyrus.add_to_biome_on_dirt("bm_forest_shore")
 end

@@ -5,7 +5,7 @@ if(minetest.get_modpath("gravel")) ~= nil then
 end
 
 minetest.register_biome({
-	name = "icesheet",
+	name = "bm_icesheet",
 	node_dust = "snow:block",
 	node_top = "snow:block",
 	depth_top = 1,
@@ -26,7 +26,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "icesheet_ocean",
+	name = "bm_icesheet_ocean",
 	node_dust = "snow:block",
 	node_top = "sand:sand",
 	depth_top = 1,
@@ -50,7 +50,7 @@ if(minetest.get_modpath("lava")) ~= nil then
 end
 
 minetest.register_biome({
-	name = "icesheet_under",
+	name = "bm_icesheet_under",
 	node_cave_liquid = cave_liquid,
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",

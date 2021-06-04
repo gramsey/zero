@@ -1,7 +1,7 @@
 
 local cave_liquid = {"water:water_source"};
 minetest.register_biome({
-		name = "savanna",
+		name = "bm_savanna",
 		node_top = "dirt:grass_dry",
 		depth_top = 1,
 		node_filler = "dirt:dry",
@@ -18,7 +18,7 @@ minetest.register_biome({
 	})
 
 	minetest.register_biome({
-		name = "savanna_shore",
+		name = "bm_savanna_shore",
 		node_top = "dirt:dry",
 		depth_top = 1,
 		node_filler = "dirt:dry",
@@ -35,7 +35,7 @@ minetest.register_biome({
 	})
 
 	minetest.register_biome({
-		name = "savanna_ocean",
+		name = "bm_savanna_ocean",
 		node_top = "sand:sand",
 		depth_top = 1,
 		node_filler = "sand:sand",
@@ -58,7 +58,7 @@ if(minetest.get_modpath("lava")) ~= nil then
 end
 
 minetest.register_biome({
-	name = "savanna_under",
+	name = "bm_savanna_under",
 	node_cave_liquid = cave_liquid,
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
@@ -75,14 +75,14 @@ if(minetest.get_modpath("papyrus")) ~= nil then
 end
 
 if(minetest.get_modpath("grass")) ~= nil then
-	grass.add_dry_to_biome("savanna")
+	grass.add_dry_to_biome("bm_savanna")
 end
 
 if(minetest.get_modpath("acacia")) ~= nil then
-	acacia.add_to_biome("savanna")
-	acacia.add_log_to_biome("savanna")
+	acacia.add_to_biome("bm_savanna")
+	acacia.add_log_to_biome("bm_savanna")
 end
 
 if minetest.get_modpath("papyrus") then
-	papyrus.add_to_biome_on_dry_dirt("savanna_ocean")
+	papyrus.add_to_biome_on_dry_dirt("bm_savanna_ocean")
 end

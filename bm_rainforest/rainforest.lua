@@ -1,6 +1,6 @@
 
 minetest.register_biome({
-	name = "rainforest",
+	name = "bm_rainforest",
 	node_top = "dirt:litter",
 	depth_top = 1,
 	node_filler = "dirt:dirt",
@@ -17,7 +17,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "rainforest_swamp",
+	name = "bm_rainforest_swamp",
 	node_top = "dirt:dirt",
 	depth_top = 1,
 	node_filler = "dirt:dirt",
@@ -34,7 +34,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "rainforest_ocean",
+	name = "bm_rainforest_ocean",
 	node_top = "sand:sand",
 	depth_top = 1,
 	node_filler = "sand:sand",
@@ -59,7 +59,7 @@ if(minetest.get_modpath("lava")) ~= nil then
 end
 
 minetest.register_biome({
-	name = "rainforest_under",
+	name = "bm_rainforest_under",
 	node_cave_liquid = cave_liquid,
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
@@ -71,18 +71,18 @@ minetest.register_biome({
 })
 
 if(minetest.get_modpath("grass")) ~= nil then
-	grass.add_jungle_to_biome("rainforest")
-	grass.add_fern_to_biome("rainforest")
+	grass.add_jungle_to_biome("bm_rainforest")
+	grass.add_fern_to_biome("bm_rainforest")
 end
 
 if(minetest.get_modpath("jungle")) ~= nil then
-	jungle.add_to_biome("rainforest")
-	jungle.add_emergent_to_biome("rainforest")
-	jungle.add_log_to_biome("rainforest")
+	jungle.add_to_biome("bm_rainforest")
+	jungle.add_emergent_to_biome("bm_rainforest")
+	jungle.add_log_to_biome("bm_rainforest")
 
 	-- add additional trees at water level for swamp
-	jungle.add_to_biome("rainforest_swamp", {
-		name = "rainforest:swamp_trees",
+	jungle.add_to_biome("bm_rainforest_swamp", {
+		name = "bm_rainforest:swamp_trees",
 		place_on = {"default:dirt"},
 		sidelen = 16,
 		noise_params = { 
@@ -99,5 +99,5 @@ if(minetest.get_modpath("jungle")) ~= nil then
 end
 
 if(minetest.get_modpath("papyrus")) ~= nil then
-	--papyrus.add_to_biome_on_dirt("rainforest_swamp")
+	--papyrus.add_to_biome_on_dirt("bm_rainforest_swamp")
 end
