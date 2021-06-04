@@ -82,6 +82,11 @@ if (minetest.get_modpath("apple") ~= nil) then
 	apple.add_log_to_biome("orchard")
 end
 
+if (minetest.get_modpath("aspen") ~= nil) then
+	aspen.add_to_biome("orchard")
+	aspen.add_log_to_biome("orchard")
+end
+
 if (minetest.get_modpath("mushroom") ~= nil) then
 	mushroom.add_all_to_biome("orchard")
 end
