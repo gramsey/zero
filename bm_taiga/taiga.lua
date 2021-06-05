@@ -53,3 +53,9 @@ minetest.register_biome({
 	heat_point = 25,
 	humidity_point = 70,
 })
+
+if(minetest.get_modpath("pine")) ~= nil then
+	pine.add_to_biome("taiga")
+	pine.add_small_to_biome("taiga")
+	pine.add_log_to_biome("taiga")
+end
