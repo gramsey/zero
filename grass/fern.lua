@@ -81,7 +81,7 @@ local function register_fern_decoration(biome, length, def)
 		biomes = { biome },
 		y_max = 31000,
 		y_min = 6,
-		decoration = "default:fern_" .. length,
+		decoration = "grass:fern_" .. length,
 	}
 
 	fern_def = copy_with_defaults(def, fern_def) 

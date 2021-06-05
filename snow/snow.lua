@@ -8,7 +8,7 @@ snow.sounds = {
 	place = {name = "snow_place", gain = 1},
 }
 
-minetest.register_node("snow:ball", {
+minetest.register_node("snow:snow", {
 	description = S("Snow"),
 	tiles = {"snow.png"},
 	inventory_image = "snow_ball.png",

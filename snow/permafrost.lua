@@ -31,7 +31,7 @@ function snow.add_permafrost_to_biome(biome, def)
 	local frost_def = {
 		name = biome..":permafrost",
 		deco_type = "simple",
-		place_on = {"default:permafrost_with_stones"},
+		place_on = {"snow:permafrost_with_stones"},
 		sidelen = 4,
 		noise_params = {
 			offset = -0.8,

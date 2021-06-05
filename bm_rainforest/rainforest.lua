@@ -83,7 +83,7 @@ if(minetest.get_modpath("jungle")) ~= nil then
 	-- add additional trees at water level for swamp
 	jungle.add_to_biome("bm_rainforest_swamp", {
 		name = "bm_rainforest:swamp_trees",
-		place_on = {"default:dirt"},
+		place_on = {"dirt:dirt"},
 		sidelen = 16,
 		noise_params = { 
 			offset = 0.0, 
