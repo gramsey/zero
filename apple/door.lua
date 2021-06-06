@@ -4,7 +4,7 @@ local S = minetest.get_translator("apple");
 -- DOOR
 door.register("apple:door", {
 	tiles = {"apple_door.png"},
-	description = "Apple wood door",
+	description = S("Wooden Door"),
 })
 
 -- GATE

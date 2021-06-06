@@ -1,0 +1,13 @@
+# textdomain: apple
+Apple Tree=
+Apple Wood Planks=
+Apple Tree Leaves=
+Apple=
+Apple Marker=
+Wooden Door=
+Apple Wood Fence Gate=
+Wooden Trapdoor=
+Apple Wood Fence=
+Apple Tree Sapling=
+Wooden Stair=
+Wooden Slab=

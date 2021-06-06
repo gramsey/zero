@@ -14,3 +14,7 @@ end
 if (minetest.get_modpath("door") ~= nil) then
 	dofile(mod_path.."/door.lua")
 end
+
+if (minetest.get_modpath("stair") ~= nil) then
+	dofile(mod_path.."/stair.lua")
+end

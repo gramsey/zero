@@ -1,13 +1,5 @@
 local S = minetest.get_translator("apple");
 
-apple.sounds = {
-	dug = dirt.grass_sounds.dug,
-	place = dirt.grass_sounds.place,
-}
-
-apple.leaves = {}
-apple.leaves.sounds = dirt.grass_sounds 
-
 minetest.register_node("apple:tree", {
     description = S("Apple Tree"),
     tiles = {
@@ -54,7 +46,7 @@ minetest.register_node("apple:leaves", {
             }
         }
     },
-    sounds = apple.leaves.sounds,
+    sounds = wood.leaves_sounds,
     after_place_node = wood.after_place_leaves,
 })
 
@@ -74,7 +66,7 @@ minetest.register_node("apple:apple", {
     groups = {fleshy = 3, dig_immediate = 3, flammable = 2,
         leafdecay = 3, leafdecay_drop = 1, food_apple = 1},
     on_use = minetest.item_eat(2),
-    sounds = apple.sounds,
+    sounds = wood.leaves_sounds,
 	sound = {  
 		eat = {name = "apple_eat", gain = 1.0},
 	},
