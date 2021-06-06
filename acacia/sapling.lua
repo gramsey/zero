@@ -18,7 +18,7 @@ function acacia.grow_acacia_sapling(pos)
 end
 
 minetest.register_node("acacia:sapling", {
-    description = S("Apple Tree Sapling"),
+    description = S("Acacia Tree Sapling"),
     drawtype = "plantlike",
     tiles = {"acacia_sapling.png"},
     inventory_image = "acacia_sapling.png",

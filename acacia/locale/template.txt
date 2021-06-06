@@ -1,0 +1,6 @@
+# textdomain: acacia
+Acacia Tree=
+Acacia Wood Planks=
+Acacia Tree Leaves=
+Acacia Wood Fence=
+Acacia Tree Sapling=

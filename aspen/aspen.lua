@@ -22,7 +22,7 @@ minetest.register_node("aspen:wood", {
 })
 
 minetest.register_node("aspen:leaves", {
-	description = S("Acacia Tree Leaves"),
+	description = S("Aspen Tree Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"aspen_leaves.png"},
 --	special_tiles = {"aspen_leaves_simple.png"},

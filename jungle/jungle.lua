@@ -2,7 +2,7 @@
 local S = minetest.get_translator("jungle")
 
 minetest.register_node("jungle:tree", {
-	description = S("Acacia Tree"),
+	description = S("Jungle Tree"),
 	tiles = {"jungle_tree_top.png", "jungle_tree_top.png",
 		"jungle_tree.png"},
 	paramtype2 = "facedir",
@@ -14,7 +14,7 @@ minetest.register_node("jungle:tree", {
 })
 
 minetest.register_node("jungle:wood", {
-	description = S("Acacia Wood Planks"),
+	description = S("Jungle Wood Planks"),
 	paramtype2 = "facedir",
 	place_param2 = 0,
 	tiles = {"jungle_wood.png"},
@@ -24,7 +24,7 @@ minetest.register_node("jungle:wood", {
 })
 
 minetest.register_node("jungle:leaves", {
-	description = S("Acacia Tree Leaves"),
+	description = S("Jungle Tree Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"jungle_leaves.png"},
 	special_tiles = {"jungle_leaves_simple.png"},
