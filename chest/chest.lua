@@ -85,6 +85,10 @@ minetest.register_on_leaveplayer(function(player)
 	end
 end)
 
+local function is_locked(pos, player)
+	return lock and lock.is_locked(pos, player:get_player_name())
+end
+
 function chest.register_chest(prefixed_name, d)
 	local name = prefixed_name:sub(1,1) == ':' and prefixed_name:sub(2,-1) or prefixed_name
 	local def = table.copy(d)
@@ -108,20 +112,19 @@ function chest.register_chest(prefixed_name, d)
 		return inv:is_empty("main")
 	end
 	def.allow_metadata_inventory_move = function(pos, fl,fi,tl,ti, count, player)
-		if lock.is_locked(pos, player:get_player_name()) then return 0 end
+		if is_locked(pos, player) then return 0 end
 		return count
 	end
 	def.allow_metadata_inventory_put = function(pos, listname, index, stack, player)
-		if lock.is_locked(pos, player:get_player_name()) then return 0 end
+		if is_locked(pos, player) then return 0 end
 		return stack:get_count()
 	end
 	def.allow_metadata_inventory_take = function(pos, listname, index, stack, player)
-		if lock.is_locked(pos, player:get_player_name()) then return 0 end
-
+		if is_locked(pos, player) then return 0 end
 		return stack:get_count()
 	end
 	def.on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
-		if lock.is_locked(pos, clicker:get_player_name()) then return end
+		if is_locked(pos, clicker) then return end
 
 		minetest.sound_play(def.sound_open, 
 			{gain = 0.3, pos = pos, max_hear_distance = 10}, true)

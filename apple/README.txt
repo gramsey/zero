@@ -37,10 +37,14 @@ BlockMen (CC BY-SA 3.0):
 
 schematics
 ----------
+All schematics adapted by BigBear (CC BY-SA 3.0)
 
 paramat (CC BY-SA 3.0):
   apple_tree.mts
   apple_tree_from_sapling.mts
 
 Shara RedCat (CC BY-SA 3.0):
+  apple_log_with_mushroom.mts
+
+BigBear (CC BY-SA 3.0):
   apple_log.mts

@@ -1,0 +1,7 @@
+# textdomain: bronze
+Bronze Block=
+Bronze Ingot=
+Bronze Pickaxe=
+Bronze Shovel=
+Bronze Axe=
+Bronze Sword=

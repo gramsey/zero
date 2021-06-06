@@ -7,7 +7,7 @@ local bronze_metal = metal.register_metal("bronze", {
 })
 
 minetest.register_craft({
-       output = bronze_metal.ingot .. " 9",
+       output = "bronze:ingot 9",
        recipe = {
                {"copper:ingot", "copper:ingot", "copper:ingot"},
                {"copper:ingot", "tin:ingot",    "copper:ingot"},
