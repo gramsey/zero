@@ -1,0 +1,8 @@
+# textdomain: dirt
+Dirt=
+Dry Dirt=
+Dirt with Grass=
+Dirt with Dry Grass=
+Dirt with leaves and twigs=
+Dirt with dry leaves and twigs=
+Dirt with Snow=

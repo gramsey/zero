@@ -1,0 +1,4 @@
+# textdomain: coal
+Coal Ore=
+Coal Block=
+Coal Lump=

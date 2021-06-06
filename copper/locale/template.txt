@@ -1,0 +1,5 @@
+# textdomain: copper
+Copper Block=
+Copper Ingot=
+Copper Lump=
+Copper Ore=

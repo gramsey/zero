@@ -1,0 +1,8 @@
+# textdomain: diamond
+Diamond Ore=
+Diamond Block=
+Diamond=
+Diamond Pickaxe=
+Diamond Shovel=
+Diamond Axe=
+Diamond Sword=
