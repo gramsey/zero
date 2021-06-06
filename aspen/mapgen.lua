@@ -1,17 +1,6 @@
-
-local function copy_with_defaults(t, defaults)
-	local def_table = table.copy(defaults)
-
-	for k, v in pairs(t) do 
-		def_table[k] = v 
-	end
-	return def_table
-end
-
 local mod_path = minetest.get_modpath("aspen")
 
 function aspen.add_to_biome(biome, def)
-	def = def or {}
 
 	local tree_def = {
 		name = biome..":aspen_trees",
@@ -33,12 +22,13 @@ function aspen.add_to_biome(biome, def)
 		flags = "place_center_x, place_center_z",
 	}
 
-	tree_def = copy_with_defaults(def, tree_def) 
+	def = def or {}
+	for k, v in pairs(def) do tree_def[k] = v end
+
 	minetest.register_decoration(tree_def)
 end
 
 function aspen.add_log_to_biome(biome, def)
-	def = def or {}
 
 	local schem = mod_path.."/schematics/aspen_log.mts"
 	
@@ -70,6 +60,8 @@ function aspen.add_log_to_biome(biome, def)
 		num_spawn_by = 8,
 	}
 
-	log_def = copy_with_defaults(def, log_def) 
+	def = def or {}
+	for k, v in pairs(def) do tree_def[k] = v end
+
 	minetest.register_decoration(log_def)
 end
