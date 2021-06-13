@@ -1,4 +1,5 @@
 # textdomain: fire
+Flint=
 Fire=
 Permanent Fire=
 Flint and Steel=

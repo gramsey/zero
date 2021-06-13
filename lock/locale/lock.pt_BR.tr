@@ -1,0 +1,7 @@
+# textdomain: lock
+Key to @1's @2=Chave para @2 de @1
+Locked @1 (owned by @2)=Bloqueado @1 (propriedade de @2)
+Blank Key=Chave em branco
+Key=Chave
+This is locked by @1=Este está bloqueado por @1 
+This key does not fit!=Esta chave não serve!

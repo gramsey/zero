@@ -18,7 +18,7 @@ function jungle.grow_jungle_sapling(pos)
 end
 
 minetest.register_node("jungle:sapling", {
-    description = S("Apple Tree Sapling"),
+    description = S("Jungle Tree Sapling"),
     drawtype = "plantlike",
     tiles = {"jungle_sapling.png"},
     inventory_image = "jungle_sapling.png",

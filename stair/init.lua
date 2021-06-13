@@ -311,7 +311,7 @@ function stair.register_stair_inner(subname, recipeitem, groups, images,
 	if full_description then
 		description = full_description
 	else
-		description = "Inner " .. description
+		description = S("Inner @1", description)
 	end
 	warn_if_exists("stair:stair_inner_" .. subname)
 	minetest.register_node(":stair:stair_inner_" .. subname, {
@@ -401,7 +401,7 @@ function stair.register_stair_outer(subname, recipeitem, groups, images,
 	if full_description then
 		description = full_description
 	else
-		description = "Outer " .. description
+		description = S("Outer @1", description)
 	end
 	warn_if_exists("stair:stair_outer_" .. subname)
 	minetest.register_node(":stair:stair_outer_" .. subname, {
@@ -463,8 +463,8 @@ function stair.register_stair_and_slab(subname, recipeitem, groups, images,
 		desc_stair, desc_slab, sounds, worldaligntex,
 		desc_stair_inner, desc_stair_outer)
 
-	desc_stair_inner = desc_stair_inner or S("Inner") .. " " .. desc_stair
-	desc_stair_outer = desc_stair_outer or S("Outer") .. " " .. desc_stair
+	desc_stair_inner = desc_stair_inner or S("Inner @1", desc_stair)
+	desc_stair_outer = desc_stair_outer or S("Outer @1", desc_stair)
 
 	stair.register_stair(subname, recipeitem, groups, images, desc_stair,
 		sounds, worldaligntex)

@@ -34,6 +34,14 @@ Cisoun's texture pack (CC BY-SA 3.0):
 BlockMen (CC BY-SA 3.0):
   apple_wood.png
 
+Fernando Zapata (CC BY-SA 3.0):
+  apple_door.png
+
+BlockMen (CC BY-SA 3.0):
+  apple_trapdoor.png
+
+paramat (CC-BY-SA-3.0):
+ apple_trapdoor_side.png
 
 schematics
 ----------

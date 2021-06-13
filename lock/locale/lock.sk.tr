@@ -1,0 +1,7 @@
+# textdomain: lock
+Key to @1's @2=Kľuč pre @2 hráča @1
+Locked @1 (owned by @2)=Zamknuté @1 (vlastnené @2)
+Blank Key=Prázdny kľúč
+Key=Kľúč
+This is locked by @1=To je uzamknuté @1
+This key does not fit!=Tento kľúč sa nezmestí

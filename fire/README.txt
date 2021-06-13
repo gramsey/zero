@@ -6,6 +6,7 @@ Authors of source code
 ----------------------
 Originally by Perttu Ahola (celeron55) <celeron55@gmail.com> (LGPLv2.1+)
 Various Minetest developers and contributors (LGPLv2.1+)
+Modified by BigBear (LGPLv2.1+)
 
 Authors of media (textures and sounds)
 --------------------------------------
@@ -17,6 +18,7 @@ Muadtralk (CC BY-SA 3.0)
 
 Gambit (CC BY-SA 3.0)
   fire_flint_steel.png
+  fire_flint.png
 
 dobroide (CC BY 3.0)
 http://www.freesound.org/people/dobroide/sounds/4211/
@@ -24,8 +26,7 @@ http://www.freesound.org/people/dobroide/sounds/4211/
 
 Dynamicell (CC BY 3.0)
 http://www.freesound.org/people/Dynamicell/sounds/17548/
-  fire_large.ogg
-  fire_fire.*.ogg
+  fire.*.ogg
 
 fire_small.ogg and fire_large.ogg are unused but kept temporarily to not break
 other mods that may use them.

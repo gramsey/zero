@@ -1,0 +1,5 @@
+# textdomain: gold
+Gold Block=
+Gold Ingot=
+Gold Lump=
+Gold Ore=

@@ -1,0 +1,7 @@
+# textdomain: lock
+Key to @1's @2=
+Locked @1 (owned by @2)=
+Blank Key=
+Key=
+This is locked by @1=
+This key does not fit!=

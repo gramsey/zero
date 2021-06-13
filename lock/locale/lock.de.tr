@@ -1,0 +1,7 @@
+# textdomain: lock
+Key to @1's @2=Schlüssel für @2 von @1
+Locked @1 (owned by @2)=Gesperrt @1 (im Besitz von @2) 
+Blank Key=Schlüsselrohling
+Key=Schlüssel
+This is locked by @1=Dies ist gesperrt von @1
+This key does not fit!=Dieser Schlüssel passt nicht!

@@ -1,0 +1,5 @@
+# textdomain: tin
+Tin Block=
+Tin Ingot=
+Tin Lump=
+Tin Ore=

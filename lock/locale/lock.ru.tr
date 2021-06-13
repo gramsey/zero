@@ -1,0 +1,7 @@
+# textdomain: lock
+Key to @1's @2=Ключ к @2 от @1
+Locked @1 (owned by @2)=Заблокировано @1 (принадлежит @2) 
+Blank Key=Пустой ключ
+Key=Ключ
+This is locked by @1=Это заблокировано @1
+This key does not fit!=Этот ключ не подходит!

@@ -1,0 +1,6 @@
+# textdomain: jungle
+Jungle Wood Fence=
+Jungle Tree=
+Jungle Wood Planks=
+Jungle Tree Leaves=
+Jungle Tree Sapling=

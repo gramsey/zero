@@ -3,7 +3,7 @@ local schematic_path = minetest.get_modpath("apple").."/schematics/"
 
 function apple.add_to_biome(biome, def)
 
-	local def_tree =  {
+	local tree_def =  {
 		name = biome.."apple_trees",
 		deco_type = "schematic",
 		place_on = { "dirt:grass" },
@@ -32,6 +32,12 @@ end
 
 function apple.add_log_to_biome(biome, def)
 
+	local schem = schematic_path.."apple_log.mts"
+	
+	if minetest.get_modpath("mushroom") ~= nil then
+		schem = schematic_path.."apple_log_with_mushroom.mts"
+	end
+
 	local log_def = {
 		name = biome..":apple_logs",
 		deco_type = "schematic",
@@ -50,10 +56,10 @@ function apple.add_log_to_biome(biome, def)
 		biomes = { biome },
 		y_max = 31000,
 		y_min = 1,
-		schematic = sch_log,
+		schematic = schem,
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = place_on_node,
+		spawn_by = "dirt:grass",
 		num_spawn_by = 8,
 	}
 

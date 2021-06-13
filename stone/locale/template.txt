@@ -1,0 +1,10 @@
+# textdomain: stone
+Stone=
+Cobblestone=
+Mossy Cobblestone=
+Stone Pickaxe=
+Stone Axe=
+Stone Shovel=
+Stone Sword=
+Cobblestone Wall=
+Mossy Cobblestone Wall=

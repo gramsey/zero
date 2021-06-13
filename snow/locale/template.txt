@@ -1,0 +1,8 @@
+# textdomain: snow
+Ice=
+Cave Ice=
+Permafrost=
+Permafrost with Stones=
+Permafrost with Moss=
+Snow=
+Snow Block=

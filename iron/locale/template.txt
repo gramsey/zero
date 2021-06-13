@@ -1,0 +1,9 @@
+# textdomain: iron
+Steel Block=
+Steel Ingot=
+Iron Lump=
+Iron Ore=
+Steel Pickaxe=
+Steel Shovel=
+Steel Axe=
+Steel Sword=

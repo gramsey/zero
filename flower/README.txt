@@ -6,6 +6,7 @@ Authors of source code
 ----------------------
 Originally by Ironzorg (MIT) and VanessaE (MIT)
 Various Minetest developers and contributors (MIT)
+Modified by BigBear (MIT)
 
 Authors of media (textures)
 ---------------------------

@@ -1,0 +1,4 @@
+# textdomain: lava
+Lava Source=
+Flowing Lava=
+Lava Bucket=

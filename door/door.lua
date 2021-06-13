@@ -79,52 +79,48 @@ local place_door = function(itemstack, placer, pointed_thing, param2)
 	return newstack, placed_at
 end
 
-local defaults = {
-	drawtype = "mesh",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	sunlight_propagates = true,
-	walkable = true,
-	is_ground_content = false,
-	buildable_to = false,
-	selection_box = {type = "fixed", fixed = {-1/2,-1/2,-1/2,1/2,3/2,-6/16}},
-	collision_box = {type = "fixed", fixed = {-1/2,-1/2,-1/2,1/2,3/2,-6/16}},
-	use_texture_alpha = "clip",
-	groups = {door = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
-	mesh = "door.obj",
-
-	on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
-		if minetest.is_protected(pos, clicker:get_player_name()) then return end
-		door.toggle(pos,node)
-	end,
-
-	on_place = function(itemstack, placer, pointed_thing, param2)
-		if can_place_door(pointed_thing) then
-			return place_door(itemstack, placer, pointed_thing, param2) 
-		end
-		local unplaceable = ItemStack("unknown") 
-		minetest.item_place(unplaceable, placer, pointed_thing, param2)
-		return itemstack, nil
-	end,
-	
-	after_dig_node = function(pos, node, meta, digger)
-		minetest.remove_node({x = pos.x, y = pos.y + 1, z = pos.z})
-		minetest.check_for_falling({x = pos.x, y = pos.y + 1, z = pos.z})
-	end,
-
-	on_rotate = function(pos, node, user, mode, new_param2)
-		door.flip(pos, node)
-		return true
-	end,
-}
 
 function door.register(name, def) 
-	-- register node for door
-	local def_table = table.copy(defaults)
+	local def_table = {
+		drawtype = "mesh",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		walkable = true,
+		is_ground_content = false,
+		buildable_to = false,
+		selection_box = {type = "fixed", fixed = {-1/2,-1/2,-1/2,1/2,3/2,-6/16}},
+		collision_box = {type = "fixed", fixed = {-1/2,-1/2,-1/2,1/2,3/2,-6/16}},
+		use_texture_alpha = "clip",
+		groups = {door = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+		mesh = "door.obj",
 
-	for k, v in pairs(def) do 
-		def_table[k] = v 
-	end
+		on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
+			if minetest.is_protected(pos, clicker:get_player_name()) then return end
+			door.toggle(pos,node)
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing, param2)
+			if can_place_door(pointed_thing) then
+				return place_door(itemstack, placer, pointed_thing, param2) 
+			end
+			local unplaceable = ItemStack("unknown") 
+			minetest.item_place(unplaceable, placer, pointed_thing, param2)
+			return itemstack, nil
+		end,
+		
+		after_dig_node = function(pos, node, meta, digger)
+			minetest.remove_node({x = pos.x, y = pos.y + 1, z = pos.z})
+			minetest.check_for_falling({x = pos.x, y = pos.y + 1, z = pos.z})
+		end,
+
+		on_rotate = function(pos, node, user, mode, new_param2)
+			door.flip(pos, node)
+			return true
+		end,
+	}
+
+	for k, v in pairs(def) do def_table[k] = v end
 
 	minetest.register_node(name, def_table)
 

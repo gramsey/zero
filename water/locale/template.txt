@@ -1,0 +1,7 @@
+# textdomain: water
+Water Source=
+Flowing Water=
+River Water Source=
+Flowing River Water=
+Water Bucket=
+River Water Bucket=

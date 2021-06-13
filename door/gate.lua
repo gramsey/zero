@@ -31,7 +31,7 @@ local defaults = {
 	collision_box = {type = "fixed", fixed = {-1/2, -1/2, -1/8, 1/2, 1/2 + clearance, 1/8}},
 	use_texture_alpha = "clip",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2},
-	mesh = "doors_fencegate_closed.obj",
+	mesh = "door_fencegate_closed.obj",
 
 	on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
 		if minetest.is_protected(pos, clicker:get_player_name()) then return end
@@ -65,7 +65,7 @@ function door.register_gate(name, def)
 
 	local gate_open = table.copy(def_table)
 	gate_open.drop = name			-- drop original fence (not _open)
-	gate_open.mesh = "doors_fencegate_open.obj"
+	gate_open.mesh = "door_fencegate_open.obj"
 	gate_open.collision_box = {type = "fixed",
 		fixed = {{-1/2, -1/2, -1/8, -3/8, 1/2 + clearance, 1/8},
 				 {-1/2, -3/8, -1/2, -3/8, 3/8,             0  }}}

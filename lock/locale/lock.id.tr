@@ -1,0 +1,7 @@
+# textdomain: lock
+Key to @1's @2=Kunci @2 milik @1
+Locked @1 (owned by @2)=Terkunci @1 (dimiliki oleh @2)
+Blank Key=Kunci Kosong
+Key=Kunci
+This is locked by @1=Ini dikunci oleh @1
+This key does not fit!=Kunci ini tidak cocok!

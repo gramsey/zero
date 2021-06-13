@@ -1,0 +1,6 @@
+# textdomain: pine
+Pine Wood Fence=
+Pine Tree=
+Pine Wood Planks=
+Pine Needles=
+Pine Tree Sapling=

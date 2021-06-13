@@ -1,0 +1,7 @@
+# textdomain: lock
+Key to @1's @2=@1的@2的钥匙
+Locked @1 (owned by @2)=锁定@1（由@2 拥有）
+Blank Key=钥匙空白
+Key=钥匙
+This is locked by @1=这被@1锁定了
+This key does not fit!=这个钥匙不合适

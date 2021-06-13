@@ -1,0 +1,10 @@
+# textdomain: mese
+Mese Lamp=
+Mese Block=
+Mese Ore=
+Mese Crystal=
+Mese Crystal Fragment=
+Mese Pickaxe=
+Mese Shovel=
+Mese Axe=
+Mese Sword=

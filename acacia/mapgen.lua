@@ -52,7 +52,7 @@ function acacia.add_log_to_biome(biome, def)
 	    schematic = schematic_path.."acacia_log.mts",
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = place_on_node,
+		spawn_by = "dirt:grass_dry",
 		num_spawn_by = 8,
 	}
 	def = def or {}

@@ -1,10 +1,5 @@
 # textdomain: fire
+Flint=Кремень
 Fire=
 Permanent Fire=
 Flint and Steel=Огниво
-
-
-##### not used anymore #####
-
-# textdomain: fire
-Permanent Flame=Вечный Огонь
