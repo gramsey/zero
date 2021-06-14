@@ -5,10 +5,9 @@ glass.sounds = {
 	footstep = {name = "glass_footstep", gain = 0.3},
     dig = {name = "glass_footstep", gain = 0.5},
     dug = {name = "glass_break", gain = 1.0},
-    place = {name = sand.sounds.place, gain = 1.0},
+    place = {name = "glass_footstep", gain = 1.0},
 }
 
-minetest.debug("registereing glass")
 minetest.register_node("glass:glass", {
     description = S("Glass"),
     drawtype = "glasslike_framed_optional",
@@ -22,7 +21,6 @@ minetest.register_node("glass:glass", {
     sounds = glass.sounds,
 })
 
-minetest.debug("registereing cooking craft")
 minetest.register_craft({
     type = "cooking",
     output = "glass:glass",

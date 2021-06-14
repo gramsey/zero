@@ -8,8 +8,8 @@ door.register("glass:door", {
 	description = S("Glass Door"),
 	groups = {node = 1, cracky=3, oddly_breakable_by_hand=3},
 	sounds = glass.sounds,
-	sound_open = "doors_glass_door_open",
-	sound_close = "doors_glass_door_close",
+	sound_open = "glass_door_open",
+	sound_close = "glass_door_close",
 })
 
 minetest.register_craft( {
@@ -21,3 +21,21 @@ minetest.register_craft( {
 	},
 })
 
+door.register("glass:obsidian_door", {
+		tiles = {"glass_obsidian_door.png"},
+		description = S("Obsidian Glass Door"),
+		inventory_image = "glass_obsidian_door_item.png",
+		groups = {node = 1, cracky=3},
+		sounds = glass.sounds,
+		sound_open = "glass_door_open",
+		sound_close = "glass_door_close",
+})
+
+minetest.register_craft( {
+	output = "glass:obsidian_door",
+	recipe = {
+		{"glass:obsidian", "glass:obsidian"},
+		{"glass:obsidian", "glass:obsidian"},
+		{"glass:obsidian", "glass:obsidian"},
+	},
+})
