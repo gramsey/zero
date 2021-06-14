@@ -54,7 +54,7 @@ if (mese_metal.ore ~= nil) then
     minetest.register_ore({
         ore_type       = "scatter",
         ore            = mese_metal.ore,
-        wherein        = mapgen_stone,
+        wherein        = "mapgen_stone",
         clust_scarcity = 14 * 14 * 14,
         clust_num_ores = 5,
         clust_size     = 3,
@@ -65,7 +65,7 @@ if (mese_metal.ore ~= nil) then
     minetest.register_ore({
         ore_type       = "scatter",
         ore            = mese_metal.ore,
-        wherein        = mapgen_stone,
+        wherein        = "mapgen_stone",
         clust_scarcity = 18 * 18 * 18,
         clust_num_ores = 3,
         clust_size     = 2,
@@ -76,7 +76,7 @@ if (mese_metal.ore ~= nil) then
     minetest.register_ore({
         ore_type       = "scatter",
         ore            = mese_metal.ore,
-        wherein        = mapgen_stone,
+        wherein        = "mapgen_stone",
         clust_scarcity = 14 * 14 * 14,
         clust_num_ores = 5,
         clust_size     = 3,
