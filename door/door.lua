@@ -124,8 +124,19 @@ function door.register(name, def)
 
 	minetest.register_node(name, def_table)
 
-	-- register flipped/mirrored version of door
 	local def_flip = table.copy(def_table)
-	def_flip.mesh="door_flip.obj"
+	-- create mirror image for left-hand doors
+	local flip_tiles = {}
+	for _, t in pairs(def.tiles) do
+		if type(t) == "table" then
+			local t_flip = table.copy(t)
+			t_flip.name = t_flip.name.."^[transformFX"
+			table.insert(flip_tiles, t_flip)
+		else
+			table.insert(flip_tiles, t.."^[transformFX")
+		end
+	end
+	def_flip.tiles = flip_tiles
+
 	minetest.register_node(name .. "_flip", def_flip)
 end
