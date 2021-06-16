@@ -18,23 +18,26 @@ Textures
 
 VanessaE (CC BY-SA 3.0):
   sand_desert.png
+  sand_desertstone.png
   sand.png
 
 paramat (CC BY-SA 3.0):
-  sand_stone_brick.png
-  sand_stone_block.png
+  sand_sandstone_brick.png
+  sand_sandstone_block.png
   sand_silver.png
-  sand_stone_silver.png -- Derived from a texture by GreenXenith (CC-BY-SA 3.0)
-  sand_stone_silver_brick.png -- Derived from a texture by GreenXenith (CC-BY-SA 3.0)
-  sand_stone_silver_block.png -- Derived from a texture by GreenXenith (CC-BY-SA 3.0)
+  sand_silver_sandstone.png -- Derived from a texture by GreenXenith (CC-BY-SA 3.0)
+  sand_silver_sandstone_brick.png -- Derived from a texture by GreenXenith (CC-BY-SA 3.0)
+  sand_silver_sandstone_block.png -- Derived from a texture by GreenXenith (CC-BY-SA 3.0)
+  sand_desert_stone_brick.png
+  sand_desert_stone_block.png
 
 TumeniNodes (CC BY-SA 3.0):
   default_desert_cobble.png -- Derived from a texture by brunob.santos (CC BY-SA 3.0)
 
 kaeza (CC-BY-SA 3.0):
-  sand_stone_desert.png
-  sand_stone_desert_brick.png
-  sand_stone_desert_block.png
+  sand_desert_sandstone.png
+  sand_desert_sandstone_brick.png
+  sand_desert_sandstone_block.png
 
 Sounds
 ------

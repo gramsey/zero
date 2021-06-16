@@ -1,2 +1,13 @@
 # textdomain: sand
 Sand=
+Sandstone=
+Sandstone Brick=
+Sandstone Block=
+Desert Sand=
+Desert Sandstone=
+Desert Sandstone Brick=
+Desert Sandstone Block=
+Silver Sand=
+Silver Sandstone=
+Silver Sandstone Brick=
+Silver Sandstone Block=
