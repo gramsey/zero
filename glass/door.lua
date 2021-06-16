@@ -4,8 +4,9 @@ local S = minetest.get_translator("glass");
 -- DOOR
 door.register("glass:door", {
 	--tiles = {{name="glass_door.png", backface_culling = true}},
-	tiles = {{name="test_door_2.png", backface_culling = true}},
-	inventory_image = "doors_item_glass.png",
+	tiles = {{name="glass_door.png", backface_culling = true}},
+	inventory_image = "glass_door_item.png",
+	wield_image = "glass_door_item.png",
 	description = S("Glass Door"),
 	groups = {node = 1, cracky=3, oddly_breakable_by_hand=3},
 	sounds = glass.sounds,

@@ -11,13 +11,17 @@ Modified by sofar (sofar@foo-projects.org) (MIT):
 Various Minetest developers and contributors (MIT)
 Modified by BigBear (MIT)
 
+Authors of media (textures)
+-------------------------
+BigBear (CC-BY-SA-3.0) - derived/inspired by sofar
+	test_door.png (CC-BY-SA-3.0) 
+
 Authors of media (models)
 -------------------------
-Door 3d models by sofar (CC-BY-SA-3.0)
-Modified by BigBear (CC-BY-SA-3.0)
+BigBear (CC-BY-SA-3.0) - derived from model by sofar (CC-BY-SA-3.0)
  - door.obj
- - door_flip.obj
-Fence gate models by sofar (CC-BY-SA-3.0)
+
+sofar (CC-BY-SA-3.0)
  - door_fencegate_open.obj
  - door_fencegate_closed.obj
 
