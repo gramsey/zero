@@ -1,0 +1,5 @@
+# textdomain: stair
+@1 Stair=Escalera de @1
+Inner @1 Stair=Escalera de @1 exterior
+Outer @1 Stair=Escalera de @1 interior
+@1 Slab=Losa de @1

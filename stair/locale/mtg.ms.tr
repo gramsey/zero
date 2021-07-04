@@ -1,0 +1,5 @@
+# textdomain: stair
+@1 Stair=Tangga @1
+Inner @1 Stair=Tangga @1 Dalam
+Outer @1 Stair=Tangga @1 Luar
+@1 Slab=Papak @1 

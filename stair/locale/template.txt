@@ -1,3 +1,5 @@
 # textdomain: stair
-Inner @1=
-Outer @1=
+@1 Stair=
+Inner @1 Stair=
+Outer @1 Stair=
+@1 Slab=

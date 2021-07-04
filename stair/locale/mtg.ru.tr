@@ -1,0 +1,5 @@
+# textdomain: stair
+@1 Stair=@1нная Ступень
+Inner @1 Stair=Внутренняя @1нная Ступень
+Outer @1 Stair=Внешняя @1нная Ступень
+@1 Slab=@1нная Плита

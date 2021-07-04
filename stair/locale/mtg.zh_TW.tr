@@ -1,0 +1,5 @@
+# textdomain: stair
+@1 Stair=@1樓梯
+Inner @1 Stair=內@1樓梯
+Outer @1 Stair=外@1樓梯
+@1 Slab=@1板

@@ -1,0 +1,5 @@
+# textdomain: stair
+@1 Stair=@1strappa
+Inner @1 Stair=Inre @1strappa
+Outer @1 Stair=Yttre @1strappa
+@1 Slab=@1platta

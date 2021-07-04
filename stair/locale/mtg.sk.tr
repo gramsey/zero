@@ -1,0 +1,5 @@
+# textdomain: stair
+@1 Stair=@1 schod
+Inner @1 Stair=Vnútorné @1 schod
+Outer @1 Stair=Vonkajšie @1 schod
+@1 Slab=@1 stupienok

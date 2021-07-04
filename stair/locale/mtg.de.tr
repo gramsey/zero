@@ -1,0 +1,5 @@
+# textdomain: stair
+@1 Stair=@1treppe
+Inner @1 Stair=Innere @1treppe
+Outer @1 Stair=Äußere @1treppe
+@1 Slab=@1platte

@@ -3,4 +3,4 @@
 local S = minetest.get_translator("stairs")
 
 -- Register default stairs and slabs
-stair.register("apple:", { recipeitem = "apple:wood" }) 
+stair.register_all("apple:", { recipeitem = "apple:wood" }) 
