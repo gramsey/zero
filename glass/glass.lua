@@ -12,7 +12,6 @@ minetest.register_node("glass:glass", {
     description = S("Glass"),
     drawtype = "glasslike_framed_optional",
     tiles = {"glass.png", "glass_detail.png"},
-    use_texture_alpha = "clip", -- only needed for stairs API
     paramtype = "light",
     paramtype2 = "glasslikeliquidlevel",
     sunlight_propagates = true,
