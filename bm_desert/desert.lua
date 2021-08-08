@@ -160,3 +160,7 @@ minetest.register_biome({
 	heat_point = 40,
 	humidity_point = 0,
 })
+
+if (minetest.get_modpath("coral") ~= nil) then
+	coral.add_to_biome("bm_desert_ocean")
+end

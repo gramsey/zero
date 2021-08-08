@@ -86,3 +86,7 @@ end
 if minetest.get_modpath("papyrus") then
 	papyrus.add_to_biome_on_dry_dirt("bm_savanna_ocean")
 end
+
+if (minetest.get_modpath("coral") ~= nil) then
+	coral.add_to_biome("bm_savanna_ocean")
+end
