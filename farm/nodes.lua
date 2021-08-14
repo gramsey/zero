@@ -103,41 +103,7 @@ minetest.register_node("farm:dry_soil_wet", {
 		wet = "farm:dry_soil_wet"
 	}
 })
---[[
-minetest.override_item("default:desert_sand", {
-	groups = {crumbly=3, falling_node=1, sand=1, soil = 1},
-	soil = {
-		base = "default:desert_sand",
-		dry = "farm:desert_sand_soil",
-		wet = "farm:desert_sand_soil_wet"
-	}
-})
-minetest.register_node("farm:desert_sand_soil", {
-	description = S("Desert Sand Soil"),
-	drop = "default:desert_sand",
-	tiles = {"farm_desert_sand_soil.png", "default_desert_sand.png"},
-	groups = {crumbly=3, not_in_creative_inventory = 1, falling_node=1, sand=1, soil = 2, desert = 1, field = 1},
-	sounds = default.node_sound_sand_defaults(),
-	soil = {
-		base = "default:desert_sand",
-		dry = "farm:desert_sand_soil",
-		wet = "farm:desert_sand_soil_wet"
-	}
-})
 
-minetest.register_node("farm:desert_sand_soil_wet", {
-	description = S("Wet Desert Sand Soil"),
-	drop = "default:desert_sand",
-	tiles = {"farm_desert_sand_soil_wet.png", "farm_desert_sand_soil_wet_side.png"},
-	groups = {crumbly=3, falling_node=1, sand=1, not_in_creative_inventory=1, soil=3, wet = 1, desert = 1, field = 1},
-	sounds = default.node_sound_sand_defaults(),
-	soil = {
-		base = "default:desert_sand",
-		dry = "farm:desert_sand_soil",
-		wet = "farm:desert_sand_soil_wet"
-	}
-})
-]]
 minetest.register_node("farm:straw", {
 	description = S("Straw"),
 	tiles = {"farm_straw.png"},
