@@ -90,7 +90,7 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
 				end
 
 				minetest.set_node(lpos, {name = source})
-				return ItemStack("bucket:bucket_empty")
+				return ItemStack("bucket:empty")
 			end
 		})
 	end
@@ -99,6 +99,6 @@ end
 -- Register buckets as dungeon loot
 if minetest.global_exists("dungeon_loot") then
 	dungeon_loot.register({
-		{name = "bucket:bucket_empty", chance = 0.55},
+		{name = "bucket:empty", chance = 0.55},
 	})
 end

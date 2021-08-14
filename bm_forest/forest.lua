@@ -9,7 +9,7 @@ if(minetest.get_modpath("stair")) ~= nil then
 end
 
 if(minetest.get_modpath("lava")) ~= nil then
-	other_cave_liquid = "lava:lava_source";
+	other_cave_liquid = "lava:source";
 end
 
 minetest.register_biome({
@@ -54,7 +54,7 @@ minetest.register_biome({
 	depth_filler = 3,
 	node_riverbed = "sand:sand",
 	depth_riverbed = 2,
-	node_cave_liquid = "water:water_source",
+	node_cave_liquid = "water:source",
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = dungeon_alt,
 	node_dungeon_stair = dungeon_stair,
@@ -67,7 +67,7 @@ minetest.register_biome({
 
 minetest.register_biome({
 	name = "bm_forest_under",
-	node_cave_liquid = {"water:water_source",  other_cave_liquid},
+	node_cave_liquid = {"water:source",  other_cave_liquid},
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = dungeon_alt,
 	node_dungeon_stair = dungeon_stair,

@@ -56,7 +56,7 @@ minetest.register_biome({
 	depth_filler = 3,
 	node_riverbed = "gravel:gravel",
 	depth_riverbed = 2,
-	node_cave_liquid = "water:water_source",
+	node_cave_liquid = "water:source",
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
 	node_dungeon_stair = "stone:stair_cobble",
@@ -67,9 +67,9 @@ minetest.register_biome({
 	humidity_point = 40,
 })
 
-local cave_liquid = {"water:water_source"};
+local cave_liquid = {"water:source"};
 if(minetest.get_modpath("lava")) ~= nil then
-	cave_liquid = {"water:water_source", "lava:lava_source"};
+	cave_liquid = {"water:source", "lava:source"};
 end
 
 minetest.register_biome({

@@ -1,6 +1,6 @@
 local S = minetest.get_translator("lava");
 
-minetest.register_node("lava:lava_source", {
+minetest.register_node("lava:source", {
 	description = S("Lava Source"),
 	drawtype = "liquid",
 	tiles = {
@@ -35,8 +35,8 @@ minetest.register_node("lava:lava_source", {
 	drop = "",
 	drowning = 1,
 	liquidtype = "source",
-	liquid_alternative_flowing = "lava:lava_flowing",
-	liquid_alternative_source = "lava:lava_source",
+	liquid_alternative_flowing = "lava:flowing",
+	liquid_alternative_source = "lava:source",
 	liquid_viscosity = 7,
 	liquid_renewable = false,
 	damage_per_second = 4 * 2,
@@ -44,7 +44,7 @@ minetest.register_node("lava:lava_source", {
 	groups = {lava = 3, liquid = 2, igniter = 1},
 })
 
-minetest.register_node("lava:lava_flowing", {
+minetest.register_node("lava:flowing", {
 	description = S("Flowing Lava"),
 	drawtype = "flowingliquid",
 	tiles = {"lava.png"},
@@ -81,8 +81,8 @@ minetest.register_node("lava:lava_flowing", {
 	drop = "",
 	drowning = 1,
 	liquidtype = "flowing",
-	liquid_alternative_flowing = "lava:lava_flowing",
-	liquid_alternative_source = "lava:lava_source",
+	liquid_alternative_flowing = "lava:flowing",
+	liquid_alternative_source = "lava:source",
 	liquid_viscosity = 7,
 	liquid_renewable = false,
 	damage_per_second = 4 * 2,
@@ -93,7 +93,7 @@ minetest.register_node("lava:lava_flowing", {
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "lava:lava_source",
+	recipe = "lava:source",
 	burntime = 60,
 })
 

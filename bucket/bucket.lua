@@ -15,7 +15,7 @@ local function check_protection(pos, name, text)
 	return false
 end
 
-minetest.register_craftitem("bucket:bucket_empty", {
+minetest.register_craftitem("bucket:empty", {
 	description = S("Empty Bucket"),
 	inventory_image = "bucket.png",
 	groups = {tool = 1},
@@ -59,7 +59,7 @@ minetest.register_craftitem("bucket:bucket_empty", {
 				end
 
 				-- set to return empty buckets minus 1
-				giving_back = "bucket:bucket_empty "..tostring(item_count-1)
+				giving_back = "bucket:empty "..tostring(item_count-1)
 
 			end
 
@@ -86,7 +86,7 @@ minetest.register_craftitem("bucket:bucket_empty", {
 })
 
 minetest.register_craft({
-	output = "bucket:bucket_empty 1",
+	output = "bucket:empty 1",
 	recipe = {
 		{"iron:ingot", "", "iron:ingot"},
 		{"",         "iron:ingot", ""},

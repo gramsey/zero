@@ -24,7 +24,7 @@ local function coral_on_place(itemstack, placer, pointed_thing)
 	minetest.debug("coral " .. node_under.name .. " below " .. minetest.get_node(pos_above).name)
 
 	if node_under.name ~= "coral:skeleton" or
-			minetest.get_node(pos_above).name ~= "water:water_source" then
+			minetest.get_node(pos_above).name ~= "water:source" then
 		return itemstack
 	end
 

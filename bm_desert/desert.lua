@@ -9,7 +9,7 @@ if(minetest.get_modpath("stair")) ~= nil then
 end
 
 if(minetest.get_modpath("lava")) ~= nil then
-	other_cave_liquid = "lava:lava_source";
+	other_cave_liquid = "lava:source";
 end
 
 minetest.register_biome({
@@ -38,7 +38,7 @@ minetest.register_biome({
 	node_stone = "sand:desert_sandstone",
 	node_riverbed = "sand:sand",
 	depth_riverbed = 2,
-	node_cave_liquid = "water:water_source",
+	node_cave_liquid = "water:source",
 	node_dungeon = "sand:desert_sandstone",
 	node_dungeon_stair = sand_dungeon_stair,
 	vertical_blend = 1,
@@ -50,7 +50,7 @@ minetest.register_biome({
 
 minetest.register_biome({
 	name = "desert_under",
-	node_cave_liquid = {"water:water_source", other_cave_liquid},
+	node_cave_liquid = {"water:source", other_cave_liquid},
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
 	node_dungeon_stair = dungeon_stair,
@@ -91,7 +91,7 @@ minetest.register_biome({
 	node_stone = "sand:sandstone",
 	node_riverbed = "sand:sand",
 	depth_riverbed = 2,
-	node_cave_liquid = "water:water_source",
+	node_cave_liquid = "water:source",
 	node_dungeon = "sand:sandstonebrick",
 	node_dungeon_stair = sand_dungeon_stair,
 	y_max = 3,
@@ -102,7 +102,7 @@ minetest.register_biome({
 
 minetest.register_biome({
 	name = "sandstone_desert_under",
-	node_cave_liquid = {"water:water_source", other_cave_liquid},
+	node_cave_liquid = {"water:source", other_cave_liquid},
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
 	node_dungeon_stair = dungeon_stair,
@@ -138,7 +138,7 @@ minetest.register_biome({
 	depth_filler = 3,
 	node_riverbed = "sand:sand",
 	depth_riverbed = 2,
-	node_cave_liquid = "water:water_source",
+	node_cave_liquid = "water:source",
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
 	node_dungeon_stair = dungeon_stair,
@@ -151,7 +151,7 @@ minetest.register_biome({
 
 minetest.register_biome({
 	name = "cold_desert_under",
-	node_cave_liquid = {"water:water_source", other_cave_liquid},
+	node_cave_liquid = {"water:source", other_cave_liquid},
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
 	node_dungeon_stair = dungeon_stair,

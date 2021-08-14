@@ -1,9 +1,9 @@
 local S = minetest.get_translator("water");
 
 bucket.register_liquid(
-	"water:water_source",
-	"water:water_flowing",
-	"water:bucket_water",
+	"water:source",
+	"water:flowing",
+	"water:bucket",
 	"water_bucket.png",
 	S("Water Bucket"),
 	{tool = 1, water_bucket = 1}
@@ -16,9 +16,9 @@ bucket.register_liquid(
 -- used here.
 
 bucket.register_liquid(
-	"water:river_water_source",
+	"water:river_source",
 	"water:river_water_flowing",
-	"water:bucket_river_water",
+	"water:bucket_river",
 	"water_river_bucket.png",
 	S("River Water Bucket"),
 	{tool = 1, water_bucket = 1},

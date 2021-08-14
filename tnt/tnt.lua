@@ -591,7 +591,7 @@ if enable_tnt then
 	minetest.register_abm({
 		label = "TNT ignition",
 		nodenames = {"group:tnt", "tnt:gunpowder"},
-		neighbors = {"fire:basic_flame", "lava:lava_source", "lava:lava_flowing"},
+		neighbors = {"fire:basic_flame", "lava:source", "lava:flowing"},
 		interval = 4,
 		chance = 1,
 		action = function(pos, node)

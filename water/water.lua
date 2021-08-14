@@ -4,7 +4,7 @@ water.sounds = {
 	footstep = {name = "water_footstep", gain = 0.2}
 }
 
-minetest.register_node("water:water_source", {
+minetest.register_node("water:source", {
 	description = S("Water Source"),
 	drawtype = "liquid",
 	waving = 3,
@@ -40,15 +40,15 @@ minetest.register_node("water:water_source", {
 	drop = "",
 	drowning = 1,
 	liquidtype = "source",
-	liquid_alternative_flowing = "water:water_flowing",
-	liquid_alternative_source = "water:water_source",
+	liquid_alternative_flowing = "water:flowing",
+	liquid_alternative_source = "water:source",
 	liquid_viscosity = 1,
 	post_effect_color = {a = 103, r = 30, g = 60, b = 90},
 	groups = {water = 3, liquid = 3, cools_lava = 1},
 	sounds = water.sounds,
 })
 
-minetest.register_node("water:water_flowing", {
+minetest.register_node("water:flowing", {
 	description = S("Flowing Water"),
 	drawtype = "flowingliquid",
 	waving = 3,
@@ -86,8 +86,8 @@ minetest.register_node("water:water_flowing", {
 	drop = "",
 	drowning = 1,
 	liquidtype = "flowing",
-	liquid_alternative_flowing = "water:water_flowing",
-	liquid_alternative_source = "water:water_source",
+	liquid_alternative_flowing = "water:flowing",
+	liquid_alternative_source = "water:source",
 	liquid_viscosity = 1,
 	post_effect_color = {a = 103, r = 30, g = 60, b = 90},
 	groups = {water = 3, liquid = 3, not_in_creative_inventory = 1,

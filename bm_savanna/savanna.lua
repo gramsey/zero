@@ -1,5 +1,5 @@
 
-local cave_liquid = {"water:water_source"};
+local cave_liquid = {"water:source"};
 minetest.register_biome({
 		name = "bm_savanna",
 		node_top = "dirt:grass_dry",
@@ -54,7 +54,7 @@ minetest.register_biome({
 	})
 
 if(minetest.get_modpath("lava")) ~= nil then
-	cave_liquid = {"water:water_source", "lava:lava_source"};
+	cave_liquid = {"water:source", "lava:source"};
 end
 
 minetest.register_biome({
