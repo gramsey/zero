@@ -94,3 +94,8 @@ end
 if (minetest.get_modpath("papyrus") ~= nil) then
 	papyrus.add_to_biome_on_dirt("bm_forest_shore")
 end
+
+if(minetest.get_modpath("kelp")) ~= nil then
+	kelp.add_to_biome("bm_forest_ocean")
+end
+

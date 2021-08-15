@@ -15,3 +15,10 @@ Sounds
 ------
 Tool breaking sounds added by sofar: CC-BY-3.0
   tool_breaks.* - http://www.freesound.org/people/HerbertBoland/sounds/33206/
+
+Mito551 (CC BY-SA 3.0):
+  tools_dig_oddly_breakable_by_hand.ogg
+
+blukotek (CC0 1.0):
+https://www.freesound.org/people/blukotek/sounds/251660/
+  tools_dig_snappy.ogg

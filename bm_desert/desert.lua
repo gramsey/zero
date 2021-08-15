@@ -164,3 +164,7 @@ minetest.register_biome({
 if (minetest.get_modpath("coral") ~= nil) then
 	coral.add_to_biome("bm_desert_ocean")
 end
+
+if(minetest.get_modpath("kelp")) ~= nil then
+	kelp.add_to_biome("bm_cold_desert_ocean")
+end

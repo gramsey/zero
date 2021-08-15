@@ -55,7 +55,12 @@ minetest.register_biome({
 })
 
 if(minetest.get_modpath("pine")) ~= nil then
-	pine.add_to_biome("taiga")
-	pine.add_small_to_biome("taiga")
-	pine.add_log_to_biome("taiga")
+	pine.add_to_biome("bm_taiga")
+	pine.add_small_to_biome("bm_taiga")
+	pine.add_log_to_biome("bm_taiga")
 end
+
+if(minetest.get_modpath("kelp")) ~= nil then
+	kelp.add_to_biome("bm_taiga_ocean")
+end
+	
