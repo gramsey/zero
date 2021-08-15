@@ -41,7 +41,8 @@ BlockMen (CC BY-SA 3.0):
   apple_trapdoor.png
 
 paramat (CC-BY-SA-3.0):
- apple_trapdoor_side.png
+  apple_trapdoor_side.png
+  apple_fence_rail -- Derived from a texture by BlockMen (CC BY-SA 3.0)
 
 schematics
 ----------
