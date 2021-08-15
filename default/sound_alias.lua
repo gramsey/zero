@@ -34,3 +34,5 @@ default.shim.sound_alias = {
 	["default_water_footstep"] = "water_footstep",
 	["default_wood_footstep"] = "wood_footstep",
 }
+
+function default.node_sound_wood_defaults() return wood.sounds end

@@ -11,3 +11,13 @@ minetest.register_on_joinplayer(function(player)
 	player:hud_set_hotbar_image("gui_hotbar.png")
 	player:hud_set_hotbar_selected_image("gui_hotbar_selected.png")
 end)
+
+function gui.get_hotbar_bg(x,y)
+	minetest.debug("get_hotbar_bg called with ".. x .. ":" .. y)
+	local out = ""
+	for i=0,7,1 do
+		out = out .."image["..x+i..","..y..";1,1;gui_hb_bg.png]"
+	end
+	minetest.debug("out : " .. out)
+	return out
+end
