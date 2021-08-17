@@ -9,7 +9,7 @@ wood.sounds = {
 
 minetest.register_craftitem("wood:stick", {
     description = S("Stick"),
-    inventory_image = "stick.png",
+    inventory_image = "wood_stick.png",
     groups = {stick = 1, flammable = 2}, 
 })
 
