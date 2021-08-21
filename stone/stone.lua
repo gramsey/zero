@@ -48,4 +48,22 @@ minetest.register_craft({
 	recipe = "stone:mossycobble",
 })
 
+-- STONE BRICK
+minetest.register_node("stone:brick", {
+	description = S("Stone Brick"),
+	paramtype2 = "facedir",
+	place_param2 = 0,
+	tiles = {"stone_brick.png"},
+	is_ground_content = false,
+	groups = {cracky = 2, stone = 1},
+	sounds = stone.sounds,
+})
+
+minetest.register_craft({
+	output = "stone:brick 4",
+	recipe = {
+		{"stone:stone", "stone:stone"},
+		{"stone:stone", "stone:stone"},
+	}
+})
 
