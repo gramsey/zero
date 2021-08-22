@@ -5,6 +5,8 @@ local mod_path = minetest.get_modpath("apple")
 
 dofile(mod_path.."/apple.lua")
 dofile(mod_path.."/sapling.lua")
+dofile(mod_path.."/bush.lua")
+dofile(mod_path.."/bush_sapling.lua")
 dofile(mod_path.."/mapgen.lua")
 
 if (minetest.get_modpath("fence") ~= nil) then

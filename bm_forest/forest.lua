@@ -79,6 +79,7 @@ minetest.register_biome({
 
 if (minetest.get_modpath("apple") ~= nil) then
 	apple.add_to_biome("bm_forest")
+	apple.add_bush_to_biome("bm_forest")
 	apple.add_log_to_biome("bm_forest")
 end
 

@@ -69,3 +69,30 @@ function apple.add_log_to_biome(biome, def)
 	minetest.register_decoration(log_def)
 end
 
+
+function apple.add_bush_to_biome(biome, def) 
+	local def_bush = {
+		name = biome..":apple_bush",
+		deco_type = "schematic",
+		place_on = {"dirt:grass"},
+		sidelen = 16,
+		noise_params = {
+			offset = -0.004,
+			scale = 0.01,
+			spread = {x = 100, y = 100, z = 100},
+			seed = 137,
+			octaves = 3,
+			persist = 0.7,
+		},
+		biomes = { biome },
+		y_max = 31000,
+		y_min = 1,
+		schematic = schematic_path.."apple_bush.mts",
+		flags = "place_center_x, place_center_z",
+	}
+
+	def = def or {}
+	for k, v in pairs(def) do def_bush[k] = v end
+
+	minetest.register_decoration(def_bush)
+end
