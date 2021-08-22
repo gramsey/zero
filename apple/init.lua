@@ -24,3 +24,7 @@ end
 if (minetest.get_modpath("paper") ~= nil) then
 	dofile(mod_path.."/bookshelf.lua")
 end
+
+if (minetest.get_modpath("mese") ~= nil) then
+	dofile(mod_path.."/meselamp.lua")
+end

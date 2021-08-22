@@ -62,4 +62,5 @@ function mese.register_lampost(name, def)
 	def.material = nil
 
 	minetest.register_node(name, def)
+	minetest.debug("registered "..name)
 end
