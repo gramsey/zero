@@ -13,7 +13,7 @@ if(minetest.get_modpath("lava")) ~= nil then
 end
 
 minetest.register_biome({
-	name = "desert",
+	name = "bm_desert",
 	node_top = "sand:desert",
 	depth_top = 1,
 	node_filler = "sand:desert",
@@ -30,7 +30,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "desert_ocean",
+	name = "bm_desert_ocean",
 	node_top = "sand:sand",
 	depth_top = 1,
 	node_filler = "sand:sand",
@@ -49,7 +49,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "desert_under",
+	name = "bm_desert_under",
 	node_cave_liquid = {"water:source", other_cave_liquid},
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
@@ -66,7 +66,7 @@ end
 	-- Sandstone desert
 
 minetest.register_biome({
-	name = "sandstone_desert",
+	name = "bm_sandstone_desert",
 	node_top = "sand:sand",
 	depth_top = 1,
 	node_filler = "sand:sand",
@@ -83,7 +83,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "sandstone_desert_ocean",
+	name = "bm_sandstone_desert_ocean",
 	node_top = "sand:sand",
 	depth_top = 1,
 	node_filler = "sand:sand",
@@ -101,7 +101,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "sandstone_desert_under",
+	name = "bm_sandstone_desert_under",
 	node_cave_liquid = {"water:source", other_cave_liquid},
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
@@ -114,7 +114,7 @@ minetest.register_biome({
 
 -- Cold desert
 minetest.register_biome({
-	name = "cold_desert",
+	name = "bm_cold_desert",
 	node_top = "sand:silver",
 	depth_top = 1,
 	node_filler = "sand:silver",
@@ -131,7 +131,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "cold_desert_ocean",
+	name = "bm_cold_desert_ocean",
 	node_top = "sand:sand",
 	depth_top = 1,
 	node_filler = "sand:sand",
@@ -150,7 +150,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "cold_desert_under",
+	name = "bm_cold_desert_under",
 	node_cave_liquid = {"water:source", other_cave_liquid},
 	node_dungeon = "stone:cobble",
 	node_dungeon_alt = "stone:mossycobble",
@@ -167,4 +167,14 @@ end
 
 if(minetest.get_modpath("kelp")) ~= nil then
 	kelp.add_to_biome("bm_cold_desert_ocean")
+end
+
+if(minetest.get_modpath("cactus")) ~= nil then
+	cactus.add_all_to_biome("bm_desert")
+end
+
+if(minetest.get_modpath("shrub")) ~= nil then
+	shrub.add_to_biome("bm_desert", {
+		biomes = {"bm_desert", "bm_cold_desert", "bm_sandstone_desert"}
+	})
 end

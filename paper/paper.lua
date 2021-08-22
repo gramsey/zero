@@ -10,7 +10,7 @@ minetest.register_craftitem("paper:paper", {
 minetest.register_craft({
 	output = "paper:paper",
 	recipe = {
-		{"paper:papyrus", "paper:papyrus", "paper:papyrus"},
+		{"papyrus:papyrus", "papyrus:papyrus", "papyrus:papyrus"},
 	}
 })
 

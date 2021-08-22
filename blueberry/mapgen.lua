@@ -2,8 +2,6 @@
 local schematic_path = minetest.get_modpath("blueberry").."/schematics/"
 
 function blueberry.add_to_biome(biome, def)
-minetest.debug("adding blueberry to ".. biome)
-
 	local bush_def = {
 		name = biome..":blueberry_bush",
 		deco_type = "schematic",
