@@ -90,3 +90,7 @@ if(minetest.get_modpath("kelp")) ~= nil then
 	kelp.add_to_biome("bm_grassland_ocean")
 end
 
+if(minetest.get_modpath("blueberry")) ~= nil then
+	blueberry.add_to_biome("bm_grassland")
+end
+
