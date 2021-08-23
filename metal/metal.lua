@@ -6,8 +6,9 @@ metal.sounds = {
     dig = {name = "metal_dig", gain = 0.5},
     dug = {name = "metal_dug", gain = 0.5},
     place = {name = "metal_place_node", gain = 0.5},
+	open = {name = "metal_door_open", gain = 0.2}, 
+	close = {name = "metal_door_close",  gain = 0.2},
 }
-
 
 function metal.register_metal(name, o) 
 	local ingot_name = name .. ":ingot"
