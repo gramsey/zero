@@ -67,3 +67,21 @@ minetest.register_craft({
 	}
 })
 
+-- STONE BLOCK
+minetest.register_node("stone:block", {
+	description = S("Stone Block"),
+	tiles = {"stone_block.png"},
+	is_ground_content = false,
+	groups = {cracky = 2, stone = 1},
+	sounds = stone.sounds,
+})
+
+minetest.register_craft({
+	output = "stone:block 9",
+	recipe = {
+		{"stone:stone", "stone:stone", "stone:stone"},
+		{"stone:stone", "stone:stone", "stone:stone"},
+		{"stone:stone", "stone:stone", "stone:stone"},
+	}
+})
+
