@@ -1,6 +1,8 @@
 # textdomain: jungle
 Jungle Wood Fence=
+Jungle Wood Fence Rail=
 Jungle Tree=
 Jungle Wood Planks=
 Jungle Tree Leaves=
+Jungle Wood Mese Post Light=
 Jungle Tree Sapling=

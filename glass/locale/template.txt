@@ -1,4 +1,10 @@
 # textdomain: glass
 Glass Door=
+Obsidian Glass Door=
 Glass=
 Glass Fragments=
+Obsidian=
+Obsidian Brick=
+Obsidian Block=
+Obsidian Glass=
+Obsidian Shard=

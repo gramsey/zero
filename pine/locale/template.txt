@@ -1,5 +1,7 @@
 # textdomain: pine
 Pine Wood Fence=
+Pine Wood Fence Rail=
+Pine Wood Mese Post Light=
 Pine Tree=
 Pine Wood Planks=
 Pine Needles=

@@ -1,0 +1,7 @@
+# textdomain: coral
+Green Coral=
+Pink Coral=
+Cyan Coral=
+Brown Coral=
+Orange Coral=
+Coral Skeleton=

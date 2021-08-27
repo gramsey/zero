@@ -1,0 +1,5 @@
+# textdomain: blueberry
+Blueberry Bush Leaves with Berries=
+Blueberry Bush Leaves=
+Blueberries=
+Blueberry Bush Sapling=

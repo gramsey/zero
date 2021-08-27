@@ -3,4 +3,6 @@ Aspen Tree=
 Aspen Wood Planks=
 Aspen Tree Leaves=
 Aspen Wood Fence=
+Aspen Wood Fence Rail=
+Aspen Wood Mese Post Light=
 Aspen Tree Sapling=

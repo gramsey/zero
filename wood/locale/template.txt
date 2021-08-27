@@ -1,7 +1,9 @@
 # textdomain: wood
+Wooden Sign=
 Wooden Pickaxe=
 Wooden Axe=
 Wooden Shovel=
 Wooden Sword=
 @1 will intersect protection on growth.=
 Stick=
+Wooden Ladder=

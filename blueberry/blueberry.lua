@@ -44,7 +44,7 @@ minetest.register_node("blueberry:bush_leaves", {
 })
 
 minetest.register_craftitem("blueberry:blueberry", {
-	description = S("Blueberry"),
+	description = S("Blueberries"),
 	inventory_image = "blueberry.png",
 	groups = {food_blueberries = 1, food_berry = 1},
 	on_use = minetest.item_eat(2),

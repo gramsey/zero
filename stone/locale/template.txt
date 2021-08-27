@@ -2,6 +2,8 @@
 Stone=
 Cobblestone=
 Mossy Cobblestone=
+Stone Brick=
+Stone Block=
 Stone Pickaxe=
 Stone Axe=
 Stone Shovel=
