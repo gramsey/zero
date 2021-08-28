@@ -23,7 +23,7 @@ minetest.register_node("apple:bush_leaves", {
 	drawtype = "allfaces_optional",
 	tiles = {"apple_leaves_simple.png"},
 	paramtype = "light",
-	groups = {snappy = 3, flammable = 2, leaves = 1},
+    groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, oddly_breakable_by_hand=3},
 	drop = {
 		max_items = 1,
 		items = {

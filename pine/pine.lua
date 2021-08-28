@@ -48,3 +48,10 @@ wood.register_leafdecay({
 	leaves = {"pine:needles"},
 	radius = 3,
 })
+
+minetest.register_craft({
+    output = "pine:wood 4",
+    recipe = {
+        {"pine:tree"},
+    }
+})

@@ -6,7 +6,7 @@ minetest.register_node("blueberry:bush_leaves_with_berries", {
 	drawtype = "allfaces_optional",
 	tiles = {"blueberry_bush_leaves.png^blueberry_overlay.png"},
 	paramtype = "light",
-	groups = {snappy = 3, flammable = 2, leaves = 1, dig_immediate = 3},
+    groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, oddly_breakable_by_hand=3, dig_immediate=3},
 	drop = "blueberry:blueberry",
 	sounds = wood.leaves_sounds,
 	node_dig_prediction = "blueberry:bush_leaves",
@@ -22,7 +22,7 @@ minetest.register_node("blueberry:bush_leaves", {
 	drawtype = "allfaces_optional",
 	tiles = {"blueberry_bush_leaves.png"},
 	paramtype = "light",
-	groups = {snappy = 3, flammable = 2, leaves = 1},
+    groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, oddly_breakable_by_hand=3},
 	drop = {
 		max_items = 1,
 		items = {

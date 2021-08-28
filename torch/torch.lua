@@ -143,7 +143,7 @@ minetest.register_lbm({
 minetest.register_craft({
 	output = "torch:torch 4",
 	recipe = {
-		{"ore:coal_lump"},
+		{"coal:lump"},
 		{"group:stick"},
 	}
 })
