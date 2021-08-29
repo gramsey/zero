@@ -119,6 +119,18 @@ function door.register(name, def)
 			return true
 		end,
 	}
+	
+	if def.recipe_item then 
+		minetest.register_craft({
+			output = name,
+			recipe = {
+				{def.recipe_item, def.recipe_item},
+				{def.recipe_item, def.recipe_item},
+				{def.recipe_item, def.recipe_item},
+			}
+		})
+		def.recipe_item = nil
+	end
 
 	for k, v in pairs(def) do def_table[k] = v end
 

@@ -16,7 +16,7 @@ minetest.register_node("kelp:kelp", {
 	wield_image = "kelp.png",
 	paramtype = "light",
 	paramtype2 = "leveled",
-	groups = {snappy = 3},
+	groups = {snappy = 3, oddly_breakable_by_hand=3},
 	selection_box = {
 		type = "fixed",
 		fixed = {

@@ -14,7 +14,7 @@ minetest.register_node("shrub:dry", {
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy = 3, flammable = 3, attached_node = 1},
+	groups = {oddly_breakable_by_hand = 3, snappy = 3, flammable = 3, attached_node = 1},
 	sounds = wood.leaves_sounds,
 	selection_box = {
 		type = "fixed",

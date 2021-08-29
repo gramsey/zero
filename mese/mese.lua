@@ -3,15 +3,11 @@ local S = minetest.get_translator("mese");
 
 local mese_metal = metal.register_metal("mese", {
 	block = {description = S("Mese Block"), png = "mese_block.png"},
-	ore =   {description = S("Mese Ore"), png = "mese_mineral.png"}
+	ore =   {description = S("Mese Ore"), png = "mese_mineral.png"},
+	lump =  {description = S("Mese Crystal"), png = "mese_crystal.png"},
 })
 
-minetest.register_craftitem("mese:mese_crystal", {
-	description = S("Mese Crystal"),
-	inventory_image = "mese_crystal.png",
-})
-
-minetest.register_craftitem("mese:mese_crystal_fragment", {
+minetest.register_craftitem("mese:crystal_fragment", {
 	description = S("Mese Crystal Fragment"),
 	inventory_image = "mese_crystal_fragment.png",
 })
@@ -20,32 +16,32 @@ minetest.register_craftitem("mese:mese_crystal_fragment", {
 minetest.register_craft({
 	output = mese_metal.block,
 	recipe = {
-		{"mese:mese_crystal", "mese:mese_crystal", "mese:mese_crystal"},
-		{"mese:mese_crystal", "mese:mese_crystal", "mese:mese_crystal"},
-		{"mese:mese_crystal", "mese:mese_crystal", "mese:mese_crystal"},
+		{"mese:crystal", "mese:crystal", "mese:crystal"},
+		{"mese:crystal", "mese:crystal", "mese:crystal"},
+		{"mese:crystal", "mese:crystal", "mese:crystal"},
 	}
 })
 
 minetest.register_craft({
-	output = "mese:mese_crystal",
+	output = "mese:crystal",
 	recipe = {
-		{"mese:mese_crystal_fragment", "mese:mese_crystal_fragment", "mese:mese_crystal_fragment"},
-		{"mese:mese_crystal_fragment", "mese:mese_crystal_fragment", "mese:mese_crystal_fragment"},
-		{"mese:mese_crystal_fragment", "mese:mese_crystal_fragment", "mese:mese_crystal_fragment"},
+		{"mese:crystal_fragment", "mese:crystal_fragment", "mese:crystal_fragment"},
+		{"mese:crystal_fragment", "mese:crystal_fragment", "mese:crystal_fragment"},
+		{"mese:crystal_fragment", "mese:crystal_fragment", "mese:crystal_fragment"},
 	}
 })
 
 minetest.register_craft({
-	output = "mese:mese_crystal 9",
+	output = "mese:crystal 9",
 	recipe = {
 		{"mese:mese"},
 	}
 })
 
 minetest.register_craft({
-	output = "mese:mese_crystal_fragment 9",
+	output = "mese:crystal_fragment 9",
 	recipe = {
-		{"mese:mese_crystal"},
+		{"mese:crystal"},
 	}
 })
 

@@ -17,7 +17,7 @@ minetest.register_craft({
 	output = "mese:lamp",
 	recipe = {
 		{"glass:glass"},
-		{"mese:mese_crystal"},
+		{"mese:crystal"},
 	}
 })
 
@@ -26,7 +26,7 @@ function mese.register_lampost(name, def)
 		output = name .. " 4",
 		recipe = {
 			{'', 'glass:glass', ''},
-			{'mese:mese_crystal', 'mese:mese_crystal', 'mese:mese_crystal'},
+			{'mese:crystal', 'mese:crystal', 'mese:crystal'},
 			{'', def.material, ''},
 		}
 	})
