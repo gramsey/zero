@@ -51,8 +51,6 @@ function flower.add_to_biome(name, biome, rarity)
 		seed = seed + short_name:byte(i)
 	end
 
-	minetest.debug("adding", biome, ":",  short_name, " for ", name, " seed ", seed, " rarity ", rarity)
-
 	minetest.register_decoration({
 		name = biome..":"..short_name,
 		deco_type = "simple",

@@ -6,13 +6,11 @@ end
 
 function aspen.grow_aspen_sapling(pos) 
 
-	minetest.debug("grow aspen sapling")
 	if not wood.check_grow_tree(pos) then
 		start_timer(pos)
 		return
 	end
 
-	minetest.debug("grow aspen sapling")
     local tree_schema = minetest.get_modpath("aspen") .. "/schematics/aspen_tree_from_sapling.mts"
     minetest.place_schematic({x=pos.x-4, y=pos.y-1, z=pos.z-4}, tree_schema, "random", nil, false)
 end

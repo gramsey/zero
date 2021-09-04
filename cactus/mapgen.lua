@@ -2,7 +2,6 @@
 local schematic_path = minetest.get_modpath("cactus").."/schematics/"
 
 function cactus.add_to_biome(biome, def)
-	minetest.debug("adding cactus to "..biome)
 	local cactus_def = {
 		name = biome..":cactus",
 		deco_type = "simple",
@@ -30,7 +29,6 @@ function cactus.add_to_biome(biome, def)
 end
 
 function cactus.add_large_to_biome(biome, def)
-	minetest.debug("adding large cactus to "..biome)
 	local cactus_def = {
 		name = biome..":large_cactus",
 		deco_type = "schematic",

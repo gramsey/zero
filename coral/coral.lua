@@ -5,7 +5,6 @@ coral.rooted_sounds = dirt.grass_sounds
 coral.block_sounds = stone.sounds
 
 local function coral_on_place(itemstack, placer, pointed_thing)
-	minetest.debug("coral on place")
 	if pointed_thing.type ~= "node" or not placer then
 		return itemstack
 	end
@@ -20,8 +19,6 @@ local function coral_on_place(itemstack, placer, pointed_thing)
 		return def_under.on_rightclick(pos_under, node_under,
 				placer, itemstack, pointed_thing) or itemstack
 	end
-
-	minetest.debug("coral " .. node_under.name .. " below " .. minetest.get_node(pos_above).name)
 
 	if node_under.name ~= "coral:skeleton" or
 			minetest.get_node(pos_above).name ~= "water:source" then

@@ -27,7 +27,5 @@ function kelp.add_to_biome (biome, def)
 	def = def or {}
 	for k, v in pairs(def) do kelp_def[k] = v end
 
-	minetest.debug("kelp decoration".. dump(kelp_def))
-
 	minetest.register_decoration(kelp_def)
 end

@@ -69,5 +69,4 @@ function sign.register(name, def)
 	sign_def.wield_image = sign_def.wield_image or sign_def.inventory_image
 	
 	minetest.register_node(name, sign_def)
-	minetest.debug("registered sign " .. dump(sign_def))
 end

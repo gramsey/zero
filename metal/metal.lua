@@ -24,7 +24,7 @@ function metal.register_metal(name, o)
 				description = o.ore.description,
 				tiles = {"stone.png^" .. o.ore.png},
 				groups = o.ore.groups or {cracky = 2},
-				drop = lump_name,
+				drop = o.ore.drop or lump_name,
 				sounds = stone.sounds,
 			})
 			result.ore = ore_name

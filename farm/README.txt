@@ -15,7 +15,6 @@ Created by PilzAdam (CC BY 3.0):
   farming_soil.png
   farming_soil_wet.png
   farming_soil_wet_side.png
-  farming_string.png
 
 Created by BlockMen (CC BY 3.0):
   farming_tool_diamondhoe.png

@@ -6,13 +6,11 @@ end
 
 function jungle.grow_jungle_sapling(pos) 
 
-	minetest.debug("grow jungle sapling")
 	if not wood.check_grow_tree(pos) then
 		start_timer(pos)
 		return
 	end
 
-	minetest.debug("grow jungle sapling")
     local tree_schema = minetest.get_modpath("jungle") .. "/schematics/jungle_tree_from_sapling.mts"
     minetest.place_schematic({x=pos.x-4, y=pos.y-1, z=pos.z-4}, tree_schema, "random", nil, false)
 end

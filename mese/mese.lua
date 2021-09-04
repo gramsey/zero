@@ -3,8 +3,12 @@ local S = minetest.get_translator("mese");
 
 local mese_metal = metal.register_metal("mese", {
 	block = {description = S("Mese Block"), png = "mese_block.png"},
-	ore =   {description = S("Mese Ore"), png = "mese_mineral.png"},
-	lump =  {description = S("Mese Crystal"), png = "mese_crystal.png"},
+	ore =   {description = S("Mese Ore"), png = "mese_mineral.png", drop = "mese:crystal"},
+})
+
+minetest.register_craftitem("mese:crystal", {
+	description = S("Mese Crystal"),
+	inventory_image = "mese_crystal.png",
 })
 
 minetest.register_craftitem("mese:crystal_fragment", {

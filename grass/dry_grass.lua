@@ -75,7 +75,6 @@ local function register_dry_grass_decoration(biome, offset, scale, length)
 end
 
 function grass.add_dry_to_biome(biome) 
-	minetest.debug("adding dry grass decoration")
 	register_dry_grass_decoration(biome, -0.03,  0.09,  5)
 	register_dry_grass_decoration(biome, -0.015, 0.075, 4)
 	register_dry_grass_decoration(biome, 0,      0.06,  3)

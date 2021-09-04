@@ -14,3 +14,6 @@ Cisoun (CC BY-SA 3.0):
   wool_magenta.png wool_pink.png wool_violet.png wool_yellow.png
   wool_blue.png wool_cyan.png wool_dark_grey.png wool_grey.png
   wool_orange.png wool_red.png wool_white.png
+
+Created by PilzAdam (CC BY 3.0):
+  wool_string.png

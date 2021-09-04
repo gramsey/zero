@@ -1,8 +1,5 @@
 local S = minetest.get_translator("vessel")
 
-minetest.debug("register glass bottle")
-minetest.debug("register glass bottle", dump(glass.sounds))
-
 minetest.register_node("vessel:glass_bottle", {
 	description = S("Empty Glass Bottle"),
 	drawtype = "plantlike",
@@ -20,8 +17,6 @@ minetest.register_node("vessel:glass_bottle", {
 	sounds = glass.sounds,
 })
 
-minetest.debug("register craft")
-
 minetest.register_craft( {
 	output = "vessel:glass_bottle 10",
 	recipe = {
@@ -31,7 +26,6 @@ minetest.register_craft( {
 	}
 })
 
-minetest.debug("register drinking glass")
 minetest.register_node("vessel:drinking_glass", {
 	description = S("Empty Drinking Glass"),
 	drawtype = "plantlike",

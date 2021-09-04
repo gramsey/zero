@@ -45,7 +45,6 @@ local function prepare_def(def)
 				return itemstack
 			end
 
-			minetest.debug("rotate and place")
 			return rotate_and_place(itemstack, placer, pointed_thing)
 		end,
 	}

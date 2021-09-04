@@ -56,7 +56,6 @@ farm.register_plant("farm:cotton", {
 })
 
 function farm.add_cotton_to_biome(biome, dirt)
-	minetest.debug("registering decoration cotton on ", biome, " and ", dirt) 
 	minetest.register_decoration({
 		name = biome..":cotton_wild",
 		deco_type = "simple",

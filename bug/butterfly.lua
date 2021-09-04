@@ -112,8 +112,6 @@ function bug.add_butterfly_to_biome(name, biome)
 	local deco_id = minetest.get_decoration_id(name)
 	minetest.set_gen_notify({decoration = true}, {deco_id})
 
-	minetest.debug("deco id", deco_id)
-
 	-- start nodetimers
 	minetest.register_on_generated(function(minp, maxp, blockseed)
 		local gennotify = minetest.get_mapgen_object("gennotify")
