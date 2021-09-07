@@ -20,7 +20,7 @@ minetest.register_node("jungle:wood", {
 	tiles = {"jungle_wood.png"},
 	is_ground_content = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	jounds = wood.sounds,
+	sounds = wood.sounds,
 })
 
 minetest.register_node("jungle:leaves", {
@@ -48,4 +48,11 @@ wood.register_leafdecay({
 	trunks = {"jungle:tree"},
 	leaves = {"jungle:leaves"},
 	radius = 2,
+})
+
+minetest.register_craft({
+    output = "jungle:wood 4",
+    recipe = {
+        {"jungle:tree"},
+    }
 })

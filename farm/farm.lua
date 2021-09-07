@@ -76,12 +76,6 @@ function farm.add_cotton_to_biome(biome, dirt)
 	})
 end
 
-minetest.register_craftitem("farm:string", {
-	description = S("String"),
-	inventory_image = "farm_string.png",
-	groups = {flammable = 2},
-})
-
 minetest.register_craft({
 	output = "wool:white",
 	recipe = {
@@ -91,7 +85,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "farm:string 2",
+	output = "wool:string 2",
 	recipe = {
 		{"farm:cotton"},
 		{"farm:cotton"},
@@ -132,11 +126,6 @@ minetest.register_craft({
 	burntime = 1,
 })
 
-minetest.register_craft({
-	type = "fuel",
-	recipe = "farm:string",
-	burntime = 1,
-})
 
 minetest.register_craft({
 	type = "fuel",
@@ -149,7 +138,6 @@ minetest.register_craft({
 
 if minetest.global_exists("dungeon_loot") then
 	dungeon_loot.register({
-		{name = "farm:string", chance = 0.5, count = {1, 8}},
 		{name = "farm:wheat", chance = 0.5, count = {2, 5}},
 		{name = "farm:seed_cotton", chance = 0.4, count = {1, 4},
 			types = {"normal"}},

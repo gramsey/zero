@@ -50,15 +50,15 @@ function door.register_gate(name, def)
 	def_table.tiles = {{name = def.texture, backface_culling = true}}
 	def_table.texture = nil
 
-	if def.recipeitem then
+	if def.material then
 		minetest.register_craft({
 			output = name ,
 			recipe = {
-				{"group:stick", def.recipeitem, "group:stick"},
-				{"group:stick", def.recipeitem, "group:stick"}
+				{"group:stick", def.material, "group:stick"},
+				{"group:stick", def.material, "group:stick"}
 			}
 		})
-		def_table.recipieitem = nil
+		def_table.material = nil
 	end
 
 	minetest.register_node(name, def_table)

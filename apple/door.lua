@@ -7,14 +7,14 @@ door.register("apple:door", {
 	inventory_image = "apple_door_item.png",
 	wield_image = "apple_door_item.png",
 	description = S("Wooden Door"),
-	recipe_item = "group:wood"   --TODO change to apple:wood when other wooden doors are implimented
+	material = "group:wood"   --TODO change to apple:wood when other wooden doors are implimented
 })
 
 -- GATE
 door.register_gate("apple:gate", {
 	description = S("Apple Wood Fence Gate"),
 	texture = "apple_wood.png",
-	recipeitem = "apple:wood",
+	material = "apple:wood",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 

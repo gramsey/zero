@@ -16,3 +16,8 @@ fence.register_fence_rail("apple:fence_rail", {
     groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
     sounds = wood.sounds,
 })
+minetest.register_craft({
+	type = "fuel",
+	recipe = "default:fence_wood",
+	burntime = 7,
+})

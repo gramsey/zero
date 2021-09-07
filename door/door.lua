@@ -120,16 +120,16 @@ function door.register(name, def)
 		end,
 	}
 	
-	if def.recipe_item then 
+	if def.material then 
 		minetest.register_craft({
 			output = name,
 			recipe = {
-				{def.recipe_item, def.recipe_item},
-				{def.recipe_item, def.recipe_item},
-				{def.recipe_item, def.recipe_item},
+				{def.material, def.material},
+				{def.material, def.material},
+				{def.material, def.material},
 			}
 		})
-		def.recipe_item = nil
+		def.material = nil
 	end
 
 	for k, v in pairs(def) do def_table[k] = v end

@@ -3,15 +3,15 @@ local clearance = minetest.settings:get_bool("enable_fence_tall") and 3/8 or 0
 
 function fence.register_fence(name, def)
 	-- RECIPE
-	if (def.recipe_item ~= nil) then
+	if (def.material ~= nil) then
 		minetest.register_craft({
 			output = name .. " 4",
 			recipe = {
-				{ def.recipe_item, 'group:stick', def.recipe_item },
-				{ def.recipe_item, 'group:stick', def.recipe_item },
+				{ def.material, 'group:stick', def.material },
+				{ def.material, 'group:stick', def.material },
 			}
 		})
-    	def.recipe_item = nil
+    	def.material = nil
 	end
 
 	-- FORCE REQUIRED VALUES
