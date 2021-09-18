@@ -7,9 +7,9 @@ function fence.register_fence_rail(name, def)
 		minetest.register_craft({
 			output = name .. " 16",
 			recipe = {
-				{ def.recipe_item, def.recipe_item },
+				{ def.material, def.material },
 				{ "", ""},
-				{ def.recipe_item, def.recipe_item },
+				{ def.material, def.material },
 			}
 		})
     	def.material = nil
