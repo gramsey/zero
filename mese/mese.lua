@@ -148,3 +148,20 @@ if(minetest.get_modpath("tools")) ~= nil then
 		groups = {sword = 1}
 	})
 end
+
+if(minetest.get_modpath("mesecons_wires")) ~= nil then
+	minetest.register_craft({
+		type = "cooking",
+		output = "mesecons:wire_00000000_off 2",
+		recipe = "mese:crystal_fragment",
+		cooktime = 3,
+	})
+
+	minetest.register_craft({
+		type = "cooking",
+		output = "mesecons:wire_00000000_off 18",
+		recipe = "mese:crystal",
+		cooktime = 15,
+	})
+end
+

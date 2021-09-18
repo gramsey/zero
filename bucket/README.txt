@@ -11,3 +11,8 @@ Various Minetest developers and contributors (LGPLv2.1+)
 Authors of media (textures)
 ---------------------------
 ElementW (CC BY-SA 3.0)
+
+Authors of media (sounds)
+-------------------------
+BigBear (CC BY-SA 3.0)
+

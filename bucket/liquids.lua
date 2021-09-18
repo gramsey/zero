@@ -89,6 +89,7 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
 					return
 				end
 
+				minetest.sound_play("bucket_empty", pos, true)
 				minetest.set_node(lpos, {name = source})
 				return ItemStack("bucket:empty")
 			end

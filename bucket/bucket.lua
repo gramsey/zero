@@ -42,6 +42,8 @@ minetest.register_craftitem("bucket:empty", {
 				return
 			end
 
+			minetest.sound_play("bucket_fill", pos, true)
+
 			-- default set to return filled bucket
 			local giving_back = liquiddef.itemname
 

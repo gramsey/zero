@@ -27,3 +27,12 @@ door.register_trapdoor("apple:trapdoor", {
 	tile_side = "apple_trapdoor_side.png",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, door = 1},
 })
+
+-- TODO change to apple when other trapdoor textures are created
+minetest.register_craft({
+	output = "apple:trapdoor",
+	recipe = {
+		{"group:wood", "group:wood", "group:wood"},
+		{"group:wood", "group:wood", "group:wood"},
+	}
+})

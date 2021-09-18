@@ -161,19 +161,14 @@ local function rail_sound(self, dtime)
 		return
 	end
 	self.sound_ttl = 1.0
-	if self.sound_handle then
-		local handle = self.sound_handle
-		self.sound_handle = nil
-		minetest.after(0.2, minetest.sound_stop, handle)
-	end
+
 	local vel = self.object:get_velocity()
 	local speed = vector.length(vel)
 	if speed > 0 then
-		self.sound_handle = minetest.sound_play(
+		minetest.sound_play(
 			"carts_cart_moving", {
 			object = self.object,
 			gain = (speed / carts.speed_max) / 2,
-			loop = true,
 		})
 	end
 end
