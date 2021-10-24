@@ -25,6 +25,10 @@ minetest.register_biome({
 	humidity_point = 73,
 })
 
+if(minetest.get_modpath("icetower")) ~= nil then
+	icetower.add_to_biome("bm_icesheet")
+end
+
 minetest.register_biome({
 	name = "bm_icesheet_ocean",
 	node_dust = "snow:block",

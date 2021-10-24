@@ -35,7 +35,7 @@ local inactive_formspec = "size[8,8.5]"..
 		"listring[context;fuel]"..
 		"listring[current_player;main]"
 
-local function pipeworks_formspec(meta)
+local pipeworks_formspec = minetest.get_modpath("pipeworks") and function(meta)
 	formspec = pipeworks.fs_helpers.cycling_button(
 			meta,
 			"image_button[0,3.5;1,0.6",
@@ -374,55 +374,6 @@ local furnace_def = {
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
 }
 
--- override fields for pipeworks
-local pipeworks_furnace_def = {
-	groups = {cracky=2, tubedevice = 1, tubedevice_receiver = 1},
-	tube = {
-		insert_object = function(pos,node,stack,direction)
-			minetest.debug("insert")
-			local meta = minetest.get_meta(pos)
-			local inv = meta:get_inventory()
-			local timer = minetest.get_node_timer(pos)
-			if not timer:is_started() then
-				timer:start(1.0)
-			end
-			if direction.y == 1 then
-				return inv:add_item("fuel", stack)
-			else
-				return inv:add_item("src", stack)
-			end
-		end,
-		can_insert = function(pos, node, stack, direction)
-			minetest.debug("can insert")
-			local meta = minetest.get_meta(pos)
-			local inv = meta:get_inventory()
-			minetest.debug("inv ".. dump(inv))
-			if direction.y == 1 then
-				return inv:room_for_item("fuel", stack)
-			else
-				if meta:get_int("split_material_stacks") == 1 then
-					minetest.debug("split ")
-					stack = stack:peek_item(1)
-				end
-				minetest.debug("room_for_item".. dump(inv:room_for_item("src", stack)))
-				return inv:room_for_item("src", stack)
-			end
-		end,
-		input_inventory = "dst",
-		connect_sides = {left = 1, right = 1, back = 1, front = 1, bottom = 1, top = 1}
-	},
-	on_receive_fields = function(pos, formname, fields, sender)
-		if not pipeworks.may_configure(pos, sender) then return end
-		pipeworks.fs_helpers.on_receive_fields(pos, fields)
-		local meta = minetest.get_meta(pos)
-		local formspec = furnace.get_active_formspec(0, 0, pos, meta)
-		meta:set_string("formspec", formspec)
-	end,
-	after_place_node = pipeworks.after_place,
-	after_dig_node = pipeworks.after_dig,
-	on_rotate = pipeworks.on_rotate
-}
-
 -- override fields for active furnace
 local furnace_active_def = {
 	drop = "furnace:furnace",
@@ -443,7 +394,57 @@ local furnace_active_def = {
 	},
 }
 
+-- override fields for pipeworks
 if (minetest.get_modpath("pipeworks") ~= nil) then
+	local pipeworks_furnace_def = {
+		groups = {cracky=2, tubedevice = 1, tubedevice_receiver = 1},
+		tube = {
+			insert_object = function(pos,node,stack,direction)
+				minetest.debug("insert")
+				local meta = minetest.get_meta(pos)
+				local inv = meta:get_inventory()
+				local timer = minetest.get_node_timer(pos)
+				if not timer:is_started() then
+					timer:start(1.0)
+				end
+				if direction.y == 1 then
+					return inv:add_item("fuel", stack)
+				else
+					return inv:add_item("src", stack)
+				end
+			end,
+			can_insert = function(pos, node, stack, direction)
+				minetest.debug("can insert")
+				local meta = minetest.get_meta(pos)
+				local inv = meta:get_inventory()
+				minetest.debug("inv ".. dump(inv))
+				if direction.y == 1 then
+					return inv:room_for_item("fuel", stack)
+				else
+					if meta:get_int("split_material_stacks") == 1 then
+						minetest.debug("split ")
+						stack = stack:peek_item(1)
+					end
+					minetest.debug("room_for_item".. dump(inv:room_for_item("src", stack)))
+					return inv:room_for_item("src", stack)
+				end
+			end,
+			input_inventory = "dst",
+			connect_sides = {left = 1, right = 1, back = 1, front = 1, bottom = 1, top = 1}
+		},
+		on_receive_fields = function(pos, formname, fields, sender)
+			if not pipeworks.may_configure(pos, sender) then return end
+			pipeworks.fs_helpers.on_receive_fields(pos, fields)
+			local meta = minetest.get_meta(pos)
+			local formspec = furnace.get_active_formspec(0, 0, pos, meta)
+			meta:set_string("formspec", formspec)
+		end,
+		after_place_node = pipeworks.after_place,
+		after_dig_node = pipeworks.after_dig,
+		on_rotate = pipeworks.on_rotate
+	}
+
+
 	for k, v in pairs(pipeworks_furnace_def) do 
 		furnace_def[k] = v
 	end
