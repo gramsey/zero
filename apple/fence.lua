@@ -18,6 +18,6 @@ fence.register_fence_rail("apple:fence_rail", {
 })
 minetest.register_craft({
 	type = "fuel",
-	recipe = "default:fence_wood",
+	recipe = "apple:fence",
 	burntime = 7,
 })

@@ -23,9 +23,6 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_alias("default:rail", "carts:rail")
-
-
 carts:register_rail("carts:powerrail", {
 	description = S("Powered Rail"),
 	tiles = {

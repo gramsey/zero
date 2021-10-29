@@ -43,7 +43,7 @@ minetest.register_node("bug:bottle", {
 		end
 
 		if firefly_pos then
-			minetest.set_node(pos, {name = "vessels:glass_bottle"})
+			minetest.set_node(pos, {name = "vessel:glass_bottle"})
 			minetest.set_node(firefly_pos, {name = "bug:firefly"})
 			minetest.get_node_timer(firefly_pos):start(1)
 		end
