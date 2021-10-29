@@ -11,6 +11,6 @@ end
 if minetest.get_modpath("wool") ~= nil then
 	dofile(mod_path.."/net.lua")
 end
-if minetest.get_modpath("glass") ~= nil then
+if minetest.get_modpath("glass") ~= nil and minetest.get_modpath("vessel") ~= nil then
 	dofile(mod_path.."/bottle.lua")
 end
