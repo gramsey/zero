@@ -1,7 +1,7 @@
 local S = minetest.get_translator("furnace")
 
 -- FORMSPECS
-local active_formspec = "size[8,8.5]"..
+furnace.active_formspec = "size[8,8.5]"..
 		"list[context;src;2.75,0.5;1,1;]"..
 		"list[context;fuel;2.75,2.5;1,1;]"..
 		"image[2.75,1.5;1,1;furnace_fire_bg.png^[lowpart:"..
@@ -20,7 +20,7 @@ local active_formspec = "size[8,8.5]"..
 		"listring[context;fuel]"..
 		"listring[current_player;main]"
 
-local inactive_formspec = "size[8,8.5]"..
+furnace.inactive_formspec = "size[8,8.5]"..
 		"list[context;src;2.75,0.5;1,1;]"..
 		"list[context;fuel;2.75,2.5;1,1;]"..
 		"image[2.75,1.5;1,1;furnace_fire_bg.png]"..
@@ -35,37 +35,22 @@ local inactive_formspec = "size[8,8.5]"..
 		"listring[context;fuel]"..
 		"listring[current_player;main]"
 
-local pipeworks_formspec = minetest.get_modpath("pipeworks") and function(meta)
-	formspec = pipeworks.fs_helpers.cycling_button(
-			meta,
-			"image_button[0,3.5;1,0.6",
-			"split_material_stacks",
-			{
-				pipeworks.button_off,
-				pipeworks.button_on
-			}
-		)..
-		"label[0.9,3.51;"..
-		S("Allow splitting incoming material (not fuel) stacks from tubes").."]"
-	return  formspec
+furnace.formspec_callbacks = {}
+function furnace.on_receive_fields(fn)
+	table.insert(furnace.formspec_callbacks, fn)
 end
 
-function furnace.get_active_formspec(fuel_percent, item_percent, pos, meta)
-	local formspec = active_formspec:format(fuel_percent, item_percent)
-	
-	if (minetest.get_modpath("pipeworks") ~= nil) then
-		return formspec .. pipeworks_formspec(meta)
-	else
+function furnace.get_formspec(pos, meta, fuel_totaltime, fuel_percent, item_percent)
+	if fuel_totaltime ~= 0 then
+		local formspec = furnace.active_formspec:format(fuel_percent, item_percent)
 		return formspec
+	else
+		return furnace.inactive_formspec
 	end
 end
 
-function furnace.get_inactive_formspec(pos, meta)
-	if (minetest.get_modpath("pipeworks") ~= nil) then
-		return inactive_formspec .. pipeworks_formspec(meta)
-	else
-		return inactive_formspec
-	end
+function furnace.show_form(pos)
+	furnace.refresh(pos, 0)
 end
 
 --
@@ -135,7 +120,7 @@ local function swap_node(pos, name)
 	minetest.swap_node(pos, node)
 end
 
-local function furnace_node_timer(pos, elapsed)
+function furnace.refresh(pos, elapsed)
 	--
 	-- Initialize metadata
 	--
@@ -274,7 +259,7 @@ local function furnace_node_timer(pos, elapsed)
 		active = true
 		local fuel_percent = 100 - math.floor(fuel_time / fuel_totaltime * 100)
 		fuel_state = S("@1%", fuel_percent)
-		formspec = furnace.get_active_formspec(fuel_percent, item_percent, pos, meta)
+		formspec = furnace.get_formspec(pos, meta, fuel_totaltime, fuel_percent, item_percent)
 		swap_node(pos, "furnace:furnace_active")
 		-- make sure timer restarts automatically
 		result = true
@@ -288,7 +273,7 @@ local function furnace_node_timer(pos, elapsed)
 		if fuellist and not fuellist[1]:is_empty() then
 			fuel_state = S("@1%", 0)
 		end
-		formspec = furnace.get_inactive_formspec(pos, meta)
+		formspec = furnace.get_formspec(pos, meta, fuel_totaltime)
 		swap_node(pos, "furnace:furnace")
 		-- stop timer on the inactive furnace
 		minetest.get_node_timer(pos):stop()
@@ -337,7 +322,7 @@ local furnace_def = {
 
 	can_dig = can_dig,
 
-	on_timer = furnace_node_timer,
+	on_timer = furnace.refresh,
 
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -345,7 +330,7 @@ local furnace_def = {
 		inv:set_size('src', 1)
 		inv:set_size('fuel', 1)
 		inv:set_size('dst', 4)
-		furnace_node_timer(pos, 0)
+		furnace.refresh(pos, 0)
 	end,
 
 	on_metadata_inventory_move = function(pos)
@@ -372,6 +357,15 @@ local furnace_def = {
 	allow_metadata_inventory_put = allow_metadata_inventory_put,
 	allow_metadata_inventory_move = allow_metadata_inventory_move,
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
+    on_receive_fields = function(pos, formname, fields, player)
+		if not player then return end
+
+		local callbacks = furnace.formspec_callbacks
+		for i = 1, #callbacks do
+			callbacks[i](player, pos, fields)
+		end
+		return true
+    end
 }
 
 -- override fields for active furnace
@@ -394,70 +388,26 @@ local furnace_active_def = {
 	},
 }
 
--- override fields for pipeworks
-if (minetest.get_modpath("pipeworks") ~= nil) then
-	local pipeworks_furnace_def = {
-		groups = {cracky=2, tubedevice = 1, tubedevice_receiver = 1},
-		tube = {
-			insert_object = function(pos,node,stack,direction)
-				minetest.debug("insert")
-				local meta = minetest.get_meta(pos)
-				local inv = meta:get_inventory()
-				local timer = minetest.get_node_timer(pos)
-				if not timer:is_started() then
-					timer:start(1.0)
-				end
-				if direction.y == 1 then
-					return inv:add_item("fuel", stack)
-				else
-					return inv:add_item("src", stack)
-				end
-			end,
-			can_insert = function(pos, node, stack, direction)
-				minetest.debug("can insert")
-				local meta = minetest.get_meta(pos)
-				local inv = meta:get_inventory()
-				minetest.debug("inv ".. dump(inv))
-				if direction.y == 1 then
-					return inv:room_for_item("fuel", stack)
-				else
-					if meta:get_int("split_material_stacks") == 1 then
-						minetest.debug("split ")
-						stack = stack:peek_item(1)
-					end
-					minetest.debug("room_for_item".. dump(inv:room_for_item("src", stack)))
-					return inv:room_for_item("src", stack)
-				end
-			end,
-			input_inventory = "dst",
-			connect_sides = {left = 1, right = 1, back = 1, front = 1, bottom = 1, top = 1}
-		},
-		on_receive_fields = function(pos, formname, fields, sender)
-			if not pipeworks.may_configure(pos, sender) then return end
-			pipeworks.fs_helpers.on_receive_fields(pos, fields)
-			local meta = minetest.get_meta(pos)
-			local formspec = furnace.get_active_formspec(0, 0, pos, meta)
-			meta:set_string("formspec", formspec)
-		end,
-		after_place_node = pipeworks.after_place,
-		after_dig_node = pipeworks.after_dig,
-		on_rotate = pipeworks.on_rotate
-	}
+function furnace.register_furnace(prefixed_name, d_furnace, d_active)
+	d_furnace = d_furnace or {} -- def properties applied to both open and closed furnaces
+	d_active = d_active or {} -- def properties only applied to open furnace (overrides)
 
+	-- set defaults
+	local def_furnace = table.copy(furnace_def)
+	local def_active = table.copy(furnace_def)
+	for k, v in pairs(furnace_active_def) do def_active[k] = v end
 
-	for k, v in pairs(pipeworks_furnace_def) do 
-		furnace_def[k] = v
-	end
+	-- apply custom from parameters
+	for k, v in pairs(d_furnace) do def_furnace[k] = v end
+	for k, v in pairs(d_furnace) do def_active[k] = v end
+	for k, v in pairs(d_active) do def_active[k] = v end
+
+	-- register furnace
+	minetest.register_node(prefixed_name, def_furnace)
+	minetest.register_node(prefixed_name .. "_active", def_active)
 end
 
-minetest.register_node("furnace:furnace", furnace_def)
-
-local active_def = table.copy(furnace_def)
-for k, v in pairs(furnace_active_def) do
-	active_def[k] = v
-end
-	
-minetest.register_node("furnace:furnace_active", active_def)
+furnace.register_furnace("furnace:furnace")
 
 minetest.register_craft({
 	output = "furnace:furnace",
