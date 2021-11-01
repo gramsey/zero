@@ -155,10 +155,6 @@ local def_chest = {
 		local meta = minetest.get_meta(pos)
 		local owner = placer:get_player_name() or ""
 		meta:set_string("owner", owner)
-
-		if old_after_place_node then 
-			old_after_place_node(pos, placer)
-		end
 	end,
 
 	on_blast = function(pos)

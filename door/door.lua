@@ -36,7 +36,7 @@ door.toggle = function(pos, node )
 	minetest.swap_node(pos, {name = node.name, param1 = node.param1, param2 = node.param2})
 end
 
-local can_place_door = function(pointed_thing)
+local function can_place_door(pointed_thing)
 
 	if pointed_thing.type ~= "node" then return false end
 
@@ -59,6 +59,10 @@ local can_place_door = function(pointed_thing)
 		end
 	end
 	return false
+end
+
+local function is_locked(pos, player)
+	return lock and lock.is_locked(pos, player:get_player_name())
 end
 
 local place_door = function(itemstack, placer, pointed_thing, param2)
@@ -94,9 +98,10 @@ function door.register(name, def)
 		use_texture_alpha = "clip",
 		groups = {door = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
 		mesh = "door.obj",
+		lock_enabled = true,
 
 		on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
-			if minetest.is_protected(pos, clicker:get_player_name()) then return end
+			if is_locked(pos, clicker) then return end
 			door.toggle(pos,node)
 		end,
 
@@ -107,6 +112,12 @@ function door.register(name, def)
 			local unplaceable = ItemStack("unknown") 
 			minetest.item_place(unplaceable, placer, pointed_thing, param2)
 			return itemstack, nil
+		end,
+
+		after_place_node = function(pos, placer) 
+			local meta = minetest.get_meta(pos)
+			local owner = placer:get_player_name() or ""
+			meta:set_string("owner", owner)
 		end,
 		
 		after_dig_node = function(pos, node, meta, digger)
